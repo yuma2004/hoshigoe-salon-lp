@@ -1,0 +1,184 @@
+.reviews {
+  background-color: var(--bg-dark);
+}
+
+.firstSection {
+  padding: 40px 320px 100px;
+  position: relative;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.decorativeLines {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  margin-bottom: 30px;
+}
+
+.line {
+  width: 760px;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(191, 164, 111, 0) 0%, rgba(191, 164, 111, 0.5) 27.88%, #C4B095 49.52%, rgba(191, 164, 111, 0) 100%);
+}
+
+.title {
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 1.25em;
+  letter-spacing: 0.1em;
+  background: linear-gradient(135deg, #DCC090 0%, #99855E 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 20px;
+}
+
+.subtitle {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.833em;
+  letter-spacing: 0.1em;
+  color: var(--text-white);
+}
+
+.videoPlaceholder {
+  width: 760px;
+  height: 400px;
+  background-color: var(--gray);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.videoPlaceholder p {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.2em;
+  letter-spacing: 0.1em;
+  color: var(--text-black);
+}
+
+.secondSection {
+  padding: 0 320px 50px;
+  position: relative;
+}
+
+.reviewsHeader {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.reviewsTitle {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.833em;
+  letter-spacing: 0.1em;
+  color: var(--text-white);
+  margin-top: 20px;
+}
+
+.googleReviewWrapper {
+  width: 760px;
+  height: 562px;
+  margin: 0 auto 40px;
+  position: relative;
+  background-image: url('../assets/images/google_review.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 40px 40px 100px;
+  margin-bottom: 50px;
+}
+
+.customerReviews {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 680px;
+  align-items: stretch;
+}
+
+.reviewCard {
+  background-color: var(--text-white);
+  padding: 40px;
+  border-radius: 0;
+  box-shadow: 0px 4px 4px 0px rgba(191, 164, 111, 0.5);
+  height: 221px;
+  display: flex;
+  align-items: center;
+  gap: 45px;
+}
+
+.reviewerInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  width: 154px;
+}
+
+.avatarWrapper {
+  position: relative;
+}
+
+.avatarBorder {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: var(--light-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.avatar {
+  width: 90%;
+  height: 90%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.reviewerName {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 3.143em;
+  color: var(--text-black);
+  margin: 0;
+}
+
+.reviewComment {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 2.2em;
+  color: var(--text-dark);
+  margin: 0;
+  flex: 1;
+  max-width: 344px;
+}
+
+.reviewLink {
+  display: block;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 3.143em;
+  color: var(--text-white);
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.reviewLink:hover {
+  opacity: 0.7;
+} 
