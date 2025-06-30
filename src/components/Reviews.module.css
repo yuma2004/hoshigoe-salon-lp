@@ -1,5 +1,6 @@
 .reviews {
   background-color: var(--bg-dark);
+  padding: 40px 10vw 100px;
 }
 
 .firstSection {
@@ -88,7 +89,7 @@
   height: 562px;
   margin: 0 auto 40px;
   position: relative;
-  background-image: url('../assets/images/google_review.png');
+  background-image: url('../assets/images/google_review_bg.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -177,8 +178,241 @@
   color: var(--text-white);
   text-decoration: none;
   transition: opacity 0.3s ease;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  padding: 0;
 }
 
 .reviewLink:hover {
   opacity: 0.7;
+}
+
+/* タブレット対応 */
+@media (max-width: 1024px) {
+  .firstSection {
+    padding: 30px 50px 80px;
+  }
+
+  .secondSection {
+    padding: 0 50px 40px;
+  }
+
+  .line {
+    width: calc(100vw - 100px);
+    max-width: 600px;
+  }
+
+  .title {
+    font-size: 36px;
+  }
+
+  .subtitle {
+    font-size: 20px;
+  }
+
+  .videoPlaceholder {
+    width: 100%;
+    max-width: 600px;
+    height: 300px;
+  }
+
+  .videoPlaceholder p {
+    font-size: 28px;
+  }
+
+  .googleReviewWrapper {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    min-height: 450px;
+    padding: 30px 20px 60px;
+  }
+
+  .customerReviews {
+    width: 100%;
+    max-width: 560px;
+    gap: 30px;
+  }
+
+  .reviewCard {
+    height: auto;
+    min-height: 180px;
+    padding: 30px;
+    gap: 30px;
+  }
+
+  .reviewComment {
+    font-size: 18px;
+    line-height: 1.8em;
+  }
+}
+
+/* スマートフォン対応 */
+@media (max-width: 768px) {
+  .firstSection {
+    padding: 20px;
+  }
+
+  .secondSection {
+    padding: 0 20px 30px;
+  }
+
+  .decorativeLines {
+    gap: 0;
+    margin-bottom: 20px;
+  }
+
+  .line {
+    width: calc(100vw - 40px);
+    max-width: 350px;
+  }
+
+  .title {
+    font-size: 24px;
+    line-height: 1.3em;
+    margin-bottom: 15px;
+  }
+
+  .subtitle {
+    font-size: 20px;
+    line-height: 1.5em;
+  }
+
+  .reviewsTitle {
+    font-size: 20px;
+    line-height: 1.5em;
+    margin-top: 15px;
+  }
+
+  .videoPlaceholder {
+    width: 100%;
+    height: 216px;
+    margin-bottom: 40px;
+  }
+
+  .videoPlaceholder p {
+    font-size: 16px;
+    padding: 0 20px;
+    text-align: center;
+  }
+
+  .reviewsHeader {
+    margin-bottom: 40px;
+  }
+
+  .googleReviewWrapper {
+    width: 100%;
+    height: auto;
+    min-height: 600px;
+    padding: 20px 0;
+    margin-bottom: 30px;
+    background-image: url('../assets/images/google_review_bg.png');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .customerReviews {
+    width: 100%;
+    gap: 20px;
+    padding: 0 20px;
+  }
+
+  .reviewCard {
+    padding: 20px;
+    height: auto;
+    min-height: 271px;
+    gap: 20px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .reviewerInfo {
+    width: 100%;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .avatarBorder {
+    width: 100px;
+    height: 100px;
+  }
+
+  .reviewerName {
+    font-size: 14px;
+    line-height: 3.143em;
+    margin-bottom: 10px;
+  }
+
+  .reviewComment {
+    font-size: 16px;
+    line-height: 2em;
+    max-width: 100%;
+    text-align: left;
+  }
+
+  .reviewLink {
+    font-size: 14px;
+    line-height: 3.143em;
+    margin-top: 20px;
+  }
+}
+
+/* 小さなスマートフォン対応 */
+@media (max-width: 480px) {
+  .firstSection {
+    padding: 15px;
+  }
+
+  .secondSection {
+    padding: 0 15px 25px;
+  }
+
+  .line {
+    width: calc(100vw - 30px);
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .subtitle {
+    font-size: 18px;
+  }
+
+  .reviewsTitle {
+    font-size: 18px;
+  }
+
+  .videoPlaceholder {
+    height: 180px;
+  }
+
+  .videoPlaceholder p {
+    font-size: 14px;
+  }
+
+  .reviewCard {
+    padding: 15px;
+    min-height: 250px;
+  }
+
+  .reviewComment {
+    font-size: 14px;
+    line-height: 1.8em;
+  }
+
+  .reviewerName {
+    font-size: 12px;
+  }
+
+  .reviewLink {
+    font-size: 12px;
+  }
+}
+
+.reviewCards {
+  padding: 0 10vw 50px;
 } 

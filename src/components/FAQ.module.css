@@ -1,5 +1,5 @@
 .faq {
-  padding: 50px 320px 100px;
+  padding: 50px 10vw 100px;
   background-color: var(--bg-dark);
   position: relative;
 }
@@ -127,4 +127,91 @@
 .arrowIcon {
   width: 45px;
   height: 32px;
+}
+
+/* モバイル対応 */
+@media (max-width: 768px) {
+  .faq {
+    padding: 32px 20px 40px;
+  }
+
+  .title {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.333em;
+    margin-bottom: 40px;
+  }
+
+  .faqList {
+    gap: 40px;
+    margin-bottom: 49px;
+  }
+
+  .faqItem {
+    width: 350px;
+    height: 168px;
+    padding: 19px 20px 20px 20px;
+  }
+
+  .faqItem:nth-child(4),
+  .faqItem:nth-child(5) {
+    height: 168px;
+  }
+
+  .questionBox {
+    gap: 10px;
+    margin-bottom: 11px;
+  }
+
+  .questionMark {
+    width: 40px;
+    height: 40px;
+  }
+
+  .questionMark span {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 2.75em;
+  }
+
+  .question {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1em;
+  }
+
+  .answer {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 2em;
+    position: static;
+    margin: 0 0 20px 0;
+    max-width: 284px;
+  }
+
+  .faqItem:nth-child(4) .answer,
+  .faqItem:nth-child(5) .answer {
+    line-height: 2em;
+  }
+
+  .divider {
+    position: static;
+    width: 310px;
+    margin: 0;
+  }
+
+  .ctaButton {
+    width: 350px;
+    height: 58px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.2em;
+    letter-spacing: 0.1em;
+    gap: 12px;
+  }
+
+  .arrowIcon {
+    width: 25.32px;
+    height: 18px;
+  }
 } 

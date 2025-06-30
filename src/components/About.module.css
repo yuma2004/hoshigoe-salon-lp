@@ -1,5 +1,5 @@
 .about {
-  padding: 80px 320px 100px;
+  padding: 80px 10vw 100px;
   background-color: var(--bg-dark);
   position: relative;
 }
@@ -26,6 +26,11 @@
   gap: 60px;
   margin-bottom: 80px;
   justify-content: flex-start;
+}
+
+/* モバイル用コンテンツ（初期状態は非表示） */
+.mobileContent {
+  display: none;
 }
 
 .leftColumn,
@@ -124,4 +129,68 @@
 .arrowIcon {
   width: 45px;
   height: 32px;
+}
+
+/* ---------------- モバイルサイズ対応 ---------------- */
+@media (max-width: 768px) {
+  .about {
+    padding: 44px 20px 40px;
+  }
+
+  .title {
+    font-size: 24px;
+    line-height: 1.333em;
+  }
+
+  /* デスクトップ用コンテンツは非表示 */
+  .content {
+    display: none;
+  }
+
+  /* モバイル用レイアウト */
+  .mobileContent {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .mobileBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .imageWrapper {
+    width: 100%;
+    max-width: 350px;
+    height: 216px;
+    margin: 0 auto;
+  }
+
+  .pointTitle {
+    font-size: 20px;
+    line-height: 1.6em;
+  }
+
+  .pointDescription {
+    font-size: 20px;
+    line-height: 1.6em;
+  }
+
+  .divider {
+    width: 100%;
+  }
+
+  .ctaButton {
+    width: 350px;
+    height: 58px;
+    font-size: 16px;
+    line-height: 1.2em;
+    gap: 12px;
+  }
+
+  .arrowIcon {
+    width: 22px;
+    height: 16px;
+  }
 } 
