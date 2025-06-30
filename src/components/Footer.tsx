@@ -1,8 +1,29 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import styles from './Footer.module.css';
 import arrowIcon from '../assets/images/arrow_icon.svg';
 
 const Footer: React.FC = () => {
+  const linksRef = useRef<HTMLDivElement>(null);
+  const bottomRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const elements = [linksRef.current, bottomRef.current].filter(Boolean) as Element[];
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add(styles.visible);
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    elements.forEach(el => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <footer className={styles.footer}>
       <div className={styles.content}>
@@ -11,7 +32,10 @@ const Footer: React.FC = () => {
           <img src={arrowIcon} alt="矢印" className={styles.arrowIcon} />
         </button>
         
-        <div className={styles.linksSection}>
+        <div
+          ref={linksRef}
+          className={`${styles.linksSection} ${styles.animateSection}`}
+        >
           <div className={styles.leftSection}>
             <div className={styles.column}>
               <h3 className={styles.columnTitle}>SNS</h3>
@@ -49,7 +73,10 @@ const Footer: React.FC = () => {
         </div>
       </div>
 
-      <div className={styles.bottomBar}>
+      <div
+        ref={bottomRef}
+        className={`${styles.bottomBar} ${styles.animateSection}`}
+      >
         <div className={styles.legalLinks}>
           <a href="#">特定商取引法表記</a>
           <span className={styles.separator}>|</span>
