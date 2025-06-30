@@ -233,12 +233,15 @@
     width: 350px;
     height: auto;
     padding: 20px 20px 60px;
-    background-size: contain;
+    background-size: cover;
+    background-position: center;
   }
 
   .customerReviews {
     width: 100%;
     gap: 20px;
+    position: relative;
+    padding: 0;
   }
 
   .reviewCard {
