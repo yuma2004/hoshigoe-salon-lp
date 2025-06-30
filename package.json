@@ -1,6 +1,7 @@
 {
   "name": "mens-salon-site",
   "version": "0.1.0",
+  "homepage": "https://yuma2004.github.io/hoshigoe-salon-lp/",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
@@ -21,7 +22,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -43,6 +46,7 @@
   },
   "devDependencies": {
     "@stagewise/toolbar": "^0.4.9",
-    "@stagewise/toolbar-react": "^0.4.9"
+    "@stagewise/toolbar-react": "^0.4.9",
+    "gh-pages": "^6.3.0"
   }
 }
