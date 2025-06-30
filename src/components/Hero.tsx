@@ -17,10 +17,20 @@ const Hero: React.FC = () => {
           <span className={styles.titleLine2}>入れよう</span>
         </h1>
         
-        <p className={styles.description}>
+        <p className={`${styles.description} ${styles.descDesktop}`}>
           単発照射の高品質な施術、<br />
           完全紹介制で実現した効果を<br />
           あなたも体験してみませんか？
+        </p>
+        
+        {/* モバイル用改行位置調整バージョン */}
+        <p className={`${styles.description} ${styles.descMobile}`}>
+          単発照射の<br />
+          高品質な施術、<br />
+          完全紹介制で<br />
+          実現した効果を<br />
+          あなたも体験<br />
+          してみませんか？
         </p>
         
         <button className={styles.ctaButton}>

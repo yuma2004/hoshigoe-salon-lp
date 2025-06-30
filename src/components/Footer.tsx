@@ -42,7 +42,7 @@ const Footer: React.FC = () => {
               <div className={styles.divider} />
               <ul className={styles.linksList}>
                 <li><a href="https://www.instagram.com/reve_osaka/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-                <li><a href="#">Googleレビューを見る</a></li>
+                <li><a href="https://g.page/r/CfcYaxaTqzJzEB0/review" target="_blank" rel="noopener noreferrer">Googleレビューを見る</a></li>
               </ul>
             </div>
 
@@ -78,7 +78,7 @@ const Footer: React.FC = () => {
         className={`${styles.bottomBar} ${styles.animateSection}`}
       >
         <div className={styles.legalLinks}>
-          <a href="#">特定商取引法表記</a>
+          <a href="/hoshigoe-salon-lp/terms.html">特定商取引法表記</a>
           <span className={styles.separator}>|</span>
           <a href="#">プライバシーポリシー</a>
         </div>
