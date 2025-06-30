@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/hoshigoe-salon-lp/static/css/main.180a1ac7.css",
+    "main.css": "/hoshigoe-salon-lp/static/css/main.64023243.css",
     "main.js": "/hoshigoe-salon-lp/static/js/main.85afb480.js",
     "static/js/453.75696ff6.chunk.js": "/hoshigoe-salon-lp/static/js/453.75696ff6.chunk.js",
     "static/media/main_visual.png": "/hoshigoe-salon-lp/static/media/main_visual.fc1c8883cd7dbd8e3010.png",
@@ -15,12 +15,12 @@
     "static/media/bg_image_5.png": "/hoshigoe-salon-lp/static/media/bg_image_5.edf9cddca3c04b662acf.png",
     "index.html": "/hoshigoe-salon-lp/index.html",
     "static/media/arrow_icon.svg": "/hoshigoe-salon-lp/static/media/arrow_icon.f054a9fc9e2d536ee6c0196152d25ac5.svg",
-    "main.180a1ac7.css.map": "/hoshigoe-salon-lp/static/css/main.180a1ac7.css.map",
+    "main.64023243.css.map": "/hoshigoe-salon-lp/static/css/main.64023243.css.map",
     "main.85afb480.js.map": "/hoshigoe-salon-lp/static/js/main.85afb480.js.map",
     "453.75696ff6.chunk.js.map": "/hoshigoe-salon-lp/static/js/453.75696ff6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.180a1ac7.css",
+    "static/css/main.64023243.css",
     "static/js/main.85afb480.js"
   ]
 }
