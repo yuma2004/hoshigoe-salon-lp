@@ -15,7 +15,7 @@
 
 @media (min-width: 1440px) {
   .content {
-    padding: 48px 10vw 60px;
+    padding: 48px 320px 60px;
   }
 }
 
@@ -187,9 +187,12 @@
   box-sizing: border-box;
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 1024px) {
   .bottomBar {
-    padding: 40px 10vw 20px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 320px 20px;
   }
 }
 
