@@ -90,13 +90,13 @@
                 padding-bottom: 20px;
             }
         }
-        /* デスクトップ以外では準備中画面を表示 */
+        /* モバイルでもページを表示。準備中表示は常に非表示 */
+        .mobile-coming-soon {
+            display: none;
+        }
         @media (max-width: 1023px) {
-            .mobile-coming-soon {
-                display: flex;
-            }
             .terms-container {
-                display: none;
+                display: block;
             }
         }
     </style>
