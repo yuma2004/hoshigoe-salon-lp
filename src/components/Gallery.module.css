@@ -96,4 +96,44 @@
   font-weight: 600;
   line-height: 1.8em;
   text-align: center;
+}
+
+@media (max-width: 768px) {
+  .gallery {
+    height: 384px;
+  }
+
+  .gridContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+
+  /* Show only first image as background */
+  .imageWrapper:not(.image1) {
+    display: none;
+  }
+
+  .image1 {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+
+  .image1 .imageMask {
+    width: 100%;
+    height: 100%;
+  }
+
+  .overlayContent {
+    padding: 50px 20px;
+  }
+
+  .title {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .description {
+    font-size: 20px;
+  }
 } 

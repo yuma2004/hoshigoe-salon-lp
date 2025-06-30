@@ -124,4 +124,73 @@
 .arrowIcon {
   width: 45px;
   height: 32px;
+}
+
+@media (max-width: 768px) {
+  .about {
+    padding: 40px 20px 60px;
+  }
+
+  .header {
+    margin-bottom: 40px;
+  }
+
+  .title {
+    font-size: 24px;
+    line-height: 1.333em;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    margin-bottom: 60px;
+  }
+
+  .leftColumn,
+  .rightColumn {
+    width: 100%;
+  }
+
+  .leftColumn > .pointItem,
+  .rightColumn > .pointItem {
+    margin: 0 0 40px 0;
+  }
+
+  .imageWrapper {
+    width: 350px;
+    height: 216px;
+    margin: 0 auto;
+  }
+
+  .pointTitle {
+    font-size: 20px;
+    line-height: 2.2em;
+    color: var(--primary-gold);
+    margin-bottom: 10px;
+  }
+
+  .pointDescription {
+    font-size: 20px;
+    line-height: 1.6em;
+    margin-bottom: 10px;
+  }
+
+  .divider {
+    width: 350px;
+    height: 1px;
+  }
+
+  .ctaButton {
+    width: 350px;
+    height: 58px;
+    font-size: 16px;
+    gap: 12px;
+    border-radius: 3px;
+  }
+
+  .arrowIcon {
+    width: 25px;
+    height: 18px;
+  }
 } 
