@@ -45,7 +45,6 @@ const FAQ: React.FC = () => {
               <h3 className={styles.question}>{item.question}</h3>
             </div>
             <p className={styles.answer}>{item.answer}</p>
-            <div className={styles.divider} />
           </div>
         ))}
       </div>

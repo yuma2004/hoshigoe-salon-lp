@@ -44,7 +44,9 @@
   display: flex;
   align-items: center;
   gap: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
+  border-bottom: 3px solid var(--primary-gold);
+  padding-bottom: 10px;
 }
 
 .questionMark {
@@ -80,7 +82,7 @@
   color: var(--text-black);
   margin: 0 0 20px 40px;
   position: absolute;
-  bottom: 48px;
+  bottom: 25px;
   left: 40px;
   right: 40px;
 }
@@ -90,14 +92,7 @@
   line-height: 1.833em;
 }
 
-.divider {
-  position: absolute;
-  bottom: 62px;
-  left: 48px;
-  width: 680px;
-  height: 1px;
-  background-color: var(--primary-gold);
-}
+
 
 .ctaButton {
   width: 760px;
@@ -153,7 +148,9 @@
 
   .questionBox {
     gap: 12px;
-    margin-bottom: 8px;
+    margin-bottom: 14px;
+    border-bottom: 2px solid var(--primary-gold);
+    padding-bottom: 6px;
   }
 
   .questionMark {
@@ -178,9 +175,7 @@
     line-height: 1.6em;
   }
 
-  .divider {
-    display: none;
-  }
+
 
   .ctaButton {
     width: 350px;

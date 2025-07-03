@@ -87,6 +87,7 @@ const About: React.FC = () => {
               ))}
             </h3>
             <p className={styles.pointDescription}>{points[2].description}</p>
+            <div className={styles.divider} />
           </div>
         </div>
       </div>
