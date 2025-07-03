@@ -80,7 +80,7 @@ const Footer: React.FC = () => {
         <div className={styles.legalLinks}>
           <a href="/hoshigoe-salon-lp/terms.html">特定商取引法表記</a>
           <span className={styles.separator}>|</span>
-          <a href="#">プライバシーポリシー</a>
+          <a href="/hoshigoe-salon-lp/privacy.html">プライバシーポリシー</a>
         </div>
         <p className={styles.copyright}>© 2025 Rêve beauty salon</p>
       </div>

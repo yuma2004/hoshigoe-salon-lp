@@ -83,8 +83,13 @@ const Reviews: React.FC = () => {
           </div>
         </div>
 
-        <a href="#" className={styles.reviewLink}>
-          口コミページへのリンク（参考用）＞
+        <a
+          href="https://www.google.com/search?rlz=1C1GMSM_jaJP1102JP1102&sca_esv=8db88439da67627d&cs=0&output=search&tbm=lcl&kgmid=/g/11mcc4m5xt&q=REVE+beauty+salon&shndl=30&shem=lcuae,uaasie&source=sh/x/loc/uni/m1/1&kgs=1caa0e3389ead14b#lkt=LocalPoiReviews&rlfi=hd:;si:9945055698660296270,l,ChtSRVZFIGJlYXV0eSBzYWxvbiDlpKfpmKrluIKSARRoYWlyX3JlbW92YWxfc2VydmljZQ;mv:[[34.67684707731904,135.5034340504552],[34.676487122680975,135.5029963495448]]"
+          className={styles.reviewLink}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Googleレビューを見る＞
         </a>
       </div>
     </section>
