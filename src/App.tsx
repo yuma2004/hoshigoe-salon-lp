@@ -32,7 +32,7 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div className="App mobile-centered">
       <Hero />
       <Features />
       <Reviews />

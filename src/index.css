@@ -64,3 +64,17 @@ img {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* ---------- Tablet: center mobile layout ---------- */
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* スマホ幅コンテナを中央に固定 */
+  .mobile-centered.App {
+    max-width: 414px; /* スマホ想定の横幅 */
+    margin: 0 auto;
+  }
+
+  /* 横スクロール抑止 */
+  body {
+    overflow-x: hidden;
+  }
+}
