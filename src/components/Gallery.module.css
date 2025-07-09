@@ -82,21 +82,17 @@
   padding: 104px 0;
 }
 
-.title {
-  color: var(--text-white);
-  font-size: 40px;
-  font-weight: 600;
-  line-height: 1.8em;
-  text-align: center;
-  margin-bottom: 60px;
-}
-
+.title,
 .description {
   color: var(--text-white);
   font-size: 40px;
   font-weight: 600;
   line-height: 1.8em;
   text-align: center;
+}
+
+.title {
+  margin-bottom: 60px;
 }
 
 @media (max-width: 1024px) {
@@ -129,12 +125,12 @@
     padding: 50px 20px;
   }
 
-  .title {
-    font-size: 20px;
-    margin-bottom: 20px;
-  }
-
+  .title,
   .description {
     font-size: 20px;
+  }
+
+  .title {
+    margin-bottom: 20px;
   }
 } 

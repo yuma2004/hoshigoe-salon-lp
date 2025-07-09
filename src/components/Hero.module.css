@@ -35,14 +35,22 @@
   justify-content: center;
 }
 
-.tagline {
+.tagline,
+.subtitle {
   color: var(--primary-gold);
   font-size: 40px;
   font-weight: 600;
   line-height: 1.437em;
   letter-spacing: 0.1em;
-  margin-bottom: 60px;
   position: relative;
+}
+
+.tagline {
+  margin-bottom: 60px;
+}
+
+.subtitle {
+  margin-bottom: 25px;
 }
 
 .tagline::before {
@@ -53,16 +61,6 @@
   width: 471px;
   bottom: -20px;
   left: 0;
-}
-
-.subtitle {
-  color: var(--primary-gold);
-  font-size: 40px;
-  font-weight: 600;
-  line-height: 1.437em;
-  letter-spacing: 0.1em;
-  margin-bottom: 25px;
-  position: relative;
 }
 
 .subtitle::after {
@@ -171,8 +169,12 @@
     justify-content: flex-start;
   }
 
-  .tagline {
+  .tagline,
+  .subtitle {
     font-size: 20px;
+  }
+
+  .tagline {
     margin-bottom: 12px; /* 上下均一に調整 */
   }
 
@@ -182,7 +184,6 @@
   }
 
   .subtitle {
-    font-size: 20px;
     margin-bottom: 12px;
   }
 

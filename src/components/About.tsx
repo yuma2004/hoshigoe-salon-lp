@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './About.module.css';
-import salonImage1 from '../assets/images/salon_image_1.png';
+import salonImage1 from '../assets/images/salon_logo_wall.png';
 import salonImage2 from '../assets/images/salon_image_2.png';
 import salonImage3 from '../assets/images/salon_image_3.png';
 import arrowIcon from '../assets/images/arrow_icon.svg';
@@ -30,17 +30,26 @@ const About: React.FC = () => {
     <section className={styles.about}>
       <div className={styles.header}>
         <h2 className={styles.title}>
-          完全紹介制で5年継続、<br />
-          大阪Ｎｏ.1の実績
+          完全紹介制で５年継続、<br />
+          大阪No.1の実績
         </h2>
       </div>
 
       <div className={styles.content}>
-        <div className={styles.leftColumn}>
+        <div className={styles.desktopLayout}>
+          {/* ① 画像１ */}
           <div className={styles.imageWrapper}>
-            <img src={salonImage1} alt="サロン画像1" />
+            <img src={salonImage1} alt="サロン画像1" className={styles.logoImage} />
           </div>
-          
+
+          {/* ② ポイント０（完全紹介制） */}
+          <div className={styles.pointItem}>
+            <h3 className={styles.pointTitle}>{points[0].title}</h3>
+            <div className={styles.divider} />
+            <p className={styles.pointDescription}>{points[0].description}</p>
+          </div>
+
+          {/* ③ ポイント１（高品質な施術〜） */}
           <div className={styles.pointItem}>
             <h3 className={styles.pointTitle}>
               {points[1].title.split('\n').map((line, i) => (
@@ -50,33 +59,21 @@ const About: React.FC = () => {
                 </React.Fragment>
               ))}
             </h3>
+            <div className={styles.divider} />
             <p className={styles.pointDescription}>{points[1].description}</p>
-            <div className={styles.divider} />
           </div>
 
-          <div className={styles.imageWrapper}>
-            <img src={salonImage3} alt="サロン画像3" />
-          </div>
-        </div>
-
-        <div className={styles.rightColumn}>
-          <div className={styles.pointItem}>
-            <h3 className={styles.pointTitle}>
-              {points[0].title.split('\n').map((line, i) => (
-                <React.Fragment key={i}>
-                  {line}
-                  {i < points[0].title.split('\n').length - 1 && <br />}
-                </React.Fragment>
-              ))}
-            </h3>
-            <p className={styles.pointDescription}>{points[0].description}</p>
-            <div className={styles.divider} />
-          </div>
-
+          {/* ④ 画像２ */}
           <div className={styles.imageWrapper}>
             <img src={salonImage2} alt="サロン画像2" />
           </div>
 
+          {/* ⑤ 画像３ */}
+          <div className={styles.imageWrapper}>
+            <img src={salonImage3} alt="サロン画像3" />
+          </div>
+
+          {/* ⑥ ポイント２（美と健康〜） */}
           <div className={styles.pointItem}>
             <h3 className={styles.pointTitle}>
               {points[2].title.split('\n').map((line, i) => (
@@ -86,8 +83,65 @@ const About: React.FC = () => {
                 </React.Fragment>
               ))}
             </h3>
-            <p className={styles.pointDescription}>{points[2].description}</p>
             <div className={styles.divider} />
+            <p className={styles.pointDescription}>{points[2].description}</p>
+          </div>
+        </div>
+
+        {/* Mobile layout */}
+        <div className={styles.mobileLayout}>
+          <div className={styles.leftColumn}>
+            {/* ① 画像１ */}
+            <div className={styles.imageWrapper}>
+              <img src={salonImage1} alt="サロン画像1" className={styles.logoImage} />
+            </div>
+
+            {/* ② ポイント０（完全紹介制） */}
+            <div className={styles.pointItem}>
+              <h3 className={styles.pointTitle}>{points[0].title}</h3>
+              <div className={styles.divider} />
+              <p className={styles.pointDescription}>{points[0].description}</p>
+            </div>
+
+            {/* ③ 画像２ */}
+            <div className={styles.imageWrapper}>
+              <img src={salonImage2} alt="サロン画像2" />
+            </div>
+          </div>
+
+          <div className={styles.rightColumn}>
+            {/* ④ ポイント１（高品質な施術〜） */}
+            <div className={styles.pointItem}>
+              <h3 className={styles.pointTitle}>
+                {points[1].title.split('\n').map((line, i) => (
+                  <React.Fragment key={i}>
+                    {line}
+                    {i < points[1].title.split('\n').length - 1 && <br />}
+                  </React.Fragment>
+                ))}
+              </h3>
+              <div className={styles.divider} />
+              <p className={styles.pointDescription}>{points[1].description}</p>
+            </div>
+
+            {/* ⑤ 画像３ */}
+            <div className={styles.imageWrapper}>
+              <img src={salonImage3} alt="サロン画像3" />
+            </div>
+
+            {/* ⑥ ポイント２（美と健康〜） */}
+            <div className={styles.pointItem}>
+              <h3 className={styles.pointTitle}>
+                {points[2].title.split('\n').map((line, i) => (
+                  <React.Fragment key={i}>
+                    {line}
+                    {i < points[2].title.split('\n').length - 1 && <br />}
+                  </React.Fragment>
+                ))}
+              </h3>
+              <div className={styles.divider} />
+              <p className={styles.pointDescription}>{points[2].description}</p>
+            </div>
           </div>
         </div>
       </div>

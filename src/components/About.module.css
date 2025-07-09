@@ -1,5 +1,5 @@
 .about {
-  padding: 80px 320px 100px;
+  padding: 40px 320px 100px; /* 上部余白を縮小 */
   background-color: var(--bg-dark);
   position: relative;
 }
@@ -21,42 +21,62 @@
 }
 
 .content {
+  margin-bottom: 80px;
+}
+
+/* Desktop layout - 2x3 grid */
+.desktopLayout {
+  display: none;
+  grid-template-columns: 380px 380px;
+  gap: 60px;
+  justify-content: flex-start;
+}
+
+/* Mobile layout - existing column layout */
+.mobileLayout {
   display: grid;
   grid-template-columns: 380px 380px;
   gap: 60px;
-  margin-bottom: 80px;
   justify-content: flex-start;
+}
+
+@media (min-width: 1025px) {
+  .desktopLayout {
+    display: grid;
+  }
+  
+  .mobileLayout {
+    display: none;
+  }
 }
 
 .leftColumn,
 .rightColumn {
   display: flex;
   flex-direction: column;
-}
-
-.leftColumn {
   gap: 0;
 }
 
 .leftColumn > .pointItem {
-  margin-top: 60px;
-  margin-bottom: 79px;
-}
-
-.rightColumn {
-  gap: 0;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 .rightColumn > .pointItem:first-child {
-  margin-bottom: 79px;
+  margin-bottom: 40px;
 }
 
 .rightColumn > .imageWrapper {
-  margin-bottom: 60px;
+  margin-bottom: 20px;
 }
 
 .pointItem {
   position: relative;
+  height: 180px;  /* 高さを180pxに調整 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  /* 垂直方向中央配置 */
+  padding: 20px 0;  /* 上下のパディングを追加 */
 }
 
 .pointTitle {
@@ -64,7 +84,9 @@
   font-weight: 700;
   line-height: 1.833em;
   color: var(--primary-gold);
-  margin-bottom: 20px;
+  margin: 0 0 20px 0;  /* marginを調整 */
+  padding-bottom: 10px; /* 下線との間隔 */
+  border-bottom: 2px solid var(--primary-gold); /* 下線を追加 */
 }
 
 .pointDescription {
@@ -72,13 +94,12 @@
   font-weight: 700;
   line-height: 1.833em;
   color: var(--text-white);
-  margin: 0 0 20px 0;
+  margin: 20px 0 0 0;  /* marginを調整 */
 }
 
+/* dividerを非表示（冗長なため）*/
 .divider {
-  width: 320px;
-  height: 1px;
-  background-color: var(--primary-gold);
+  display: none;
 }
 
 .imageWrapper {
@@ -111,7 +132,7 @@
   font-weight: 500;
   letter-spacing: 0.1em;
   color: var(--text-black);
-  margin: 60px auto;
+  margin: 20px auto 80px;  /* 上余白を20pxに縮小 */
   box-shadow: 0px 4px 6px 4px rgba(255, 255, 255, 0.2);
   transition: all 0.3s ease;
 }
@@ -128,7 +149,7 @@
 
 @media (max-width: 1024px) {
   .about {
-    padding: 40px 20px 60px;
+    padding: 40px 20px 40px;
   }
 
   .header {
@@ -148,6 +169,16 @@
     margin-bottom: 60px;
   }
 
+  .mobileLayout {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+  }
+
+  .desktopLayout {
+    display: none;
+  }
+
   .leftColumn,
   .rightColumn {
     width: 100%;
@@ -155,13 +186,17 @@
 
   .leftColumn > .pointItem,
   .rightColumn > .pointItem {
-    margin: 0 0 40px 0;
+    margin: 20px 0 40px 0;
   }
 
   .imageWrapper {
     width: 350px;
     height: 216px;
     margin: 0 auto;
+  }
+
+  .pointItem {
+    height: auto;  /* モバイルでは高さを自動に */
   }
 
   .pointTitle {
@@ -179,7 +214,7 @@
 
   .divider {
     width: 350px;
-    height: 1px;
+    height: 2px;
   }
 
   .ctaButton {
@@ -195,4 +230,13 @@
     width: 25px;
     height: 18px;
   }
+  .rightColumn > .imageWrapper {
+    margin-bottom: 20px;
+  }
+}
+
+/* ロゴ画像を中央に表示 */
+.logoImage {
+  object-fit: contain;
+  object-position: center;
 } 
