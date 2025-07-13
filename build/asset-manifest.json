@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/hoshigoe-salon-lp/static/css/main.6048ab52.css",
-    "main.js": "/hoshigoe-salon-lp/static/js/main.4e5cfd54.js",
+    "main.css": "/hoshigoe-salon-lp/static/css/main.e2819f63.css",
+    "main.js": "/hoshigoe-salon-lp/static/js/main.56fcc9bb.js",
     "static/js/453.75696ff6.chunk.js": "/hoshigoe-salon-lp/static/js/453.75696ff6.chunk.js",
     "static/media/main_visual.png": "/hoshigoe-salon-lp/static/media/main_visual.fc1c8883cd7dbd8e3010.png",
     "static/media/google_review.png": "/hoshigoe-salon-lp/static/media/google_review.1efd7ea1c5fb96dd0c53.png",
@@ -12,15 +12,16 @@
     "static/media/salon_image_2.png": "/hoshigoe-salon-lp/static/media/salon_image_2.a459e1fd42998117f85a.png",
     "static/media/bg_image_3.png": "/hoshigoe-salon-lp/static/media/bg_image_3.59442f510be2de02d0c0.png",
     "static/media/bg_image_5.png": "/hoshigoe-salon-lp/static/media/bg_image_5.edf9cddca3c04b662acf.png",
+    "static/media/mobile_Gallery_img.png": "/hoshigoe-salon-lp/static/media/mobile_Gallery_img.4d31e36241f387df0c95.png",
     "static/media/salon_logo_wall.png": "/hoshigoe-salon-lp/static/media/salon_logo_wall.f473fb62870dff1a037e.png",
     "index.html": "/hoshigoe-salon-lp/index.html",
-    "static/media/arrow_icon.svg": "/hoshigoe-salon-lp/static/media/arrow_icon.b08507f0f5099d383038489ad3eb96be.svg",
-    "main.6048ab52.css.map": "/hoshigoe-salon-lp/static/css/main.6048ab52.css.map",
-    "main.4e5cfd54.js.map": "/hoshigoe-salon-lp/static/js/main.4e5cfd54.js.map",
+    "static/media/arrow_icon.svg": "/hoshigoe-salon-lp/static/media/arrow_icon.f054a9fc9e2d536ee6c0196152d25ac5.svg",
+    "main.e2819f63.css.map": "/hoshigoe-salon-lp/static/css/main.e2819f63.css.map",
+    "main.56fcc9bb.js.map": "/hoshigoe-salon-lp/static/js/main.56fcc9bb.js.map",
     "453.75696ff6.chunk.js.map": "/hoshigoe-salon-lp/static/js/453.75696ff6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6048ab52.css",
-    "static/js/main.4e5cfd54.js"
+    "static/css/main.e2819f63.css",
+    "static/js/main.56fcc9bb.js"
   ]
 }
