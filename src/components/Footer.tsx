@@ -42,7 +42,15 @@ const Footer: React.FC = () => {
               <div className={styles.divider} />
               <ul className={styles.linksList}>
                 <li><a href="https://www.instagram.com/reve_osaka/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-                <li><a href="https://g.page/r/CfcYaxaTqzJzEB0/review" target="_blank" rel="noopener noreferrer">Googleレビューを見る</a></li>
+                <li>
+                  <a
+                    href="https://www.google.com/search?rlz=1C1GMSM_jaJP1102JP1102&sca_esv=8db88439da67627d&cs=0&output=search&tbm=lcl&kgmid=/g/11mcc4m5xt&q=REVE+beauty+salon&shndl=30&shem=lcuae,uaasie&source=sh/x/loc/uni/m1/1&kgs=1caa0e3389ead14b#lkt=LocalPoiReviews&rlfi=hd:;si:9945055698660296270,l,ChtSRVZFIGJlYXV0eSBzYWxvbiDlpKfpmKrluIKSARRoYWlyX3JlbW92YWxfc2VydmljZQ;mv:[[34.67684707731904,135.5034340504552],[34.676487122680975,135.5029963495448]]"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Googleレビューを見る
+                  </a>
+                </li>
               </ul>
             </div>
 
@@ -78,9 +86,9 @@ const Footer: React.FC = () => {
         className={`${styles.bottomBar} ${styles.animateSection}`}
       >
         <div className={styles.legalLinks}>
-          <a href="/hoshigoe-salon-lp/terms.html">特定商取引法表記</a>
+          <a href="/hoshigoe-salon-lp/terms.html" target="_blank" rel="noopener noreferrer">特定商取引法表記</a>
           <span className={styles.separator}>|</span>
-          <a href="/hoshigoe-salon-lp/privacy.html">プライバシーポリシー</a>
+          <a href="/hoshigoe-salon-lp/privacy.html" target="_blank" rel="noopener noreferrer">プライバシーポリシー</a>
         </div>
         <p className={styles.copyright}>© 2025 Rêve beauty salon</p>
       </div>
