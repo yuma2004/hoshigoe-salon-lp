@@ -6,7 +6,7 @@ import voiceB from '../assets/images/voice_b.png';
 interface Review {
   name: string;
   avatar: string;
-  comment: string;
+  comment: React.ReactNode;
 }
 
 const Reviews: React.FC = () => {
@@ -14,12 +14,23 @@ const Reviews: React.FC = () => {
     {
       name: "Aさん（30代・営業職）",
       avatar: voiceA,
-      comment: "「施術が丁寧で、痛みも少なく、\n仕上がりに満足しています。\n仕事帰りに通えるので助かります！」"
+      comment: (
+        <>
+          「施術が丁寧で、痛みも少なく、仕上がりに満足しています。<br className={styles.mobileOnlyBr} />
+          仕事帰りに通えるので助かります！」
+        </>
+      )
     },
     {
       name: "Bさん（28歳・IT業界）",
       avatar: voiceB,
-      comment: "「高級感のある店内で、\nスタッフさんの対応も素晴らしい。\n安心して通えます。」"
+      comment: (
+        <>
+          「高級感のある店内で、<br className={styles.mobileOnlyBr} />
+          スタッフさんの対応も素晴らしい。<br className={styles.mobileOnlyBr} />
+          安心して通えます。」
+        </>
+      )
     }
   ];
 
@@ -28,7 +39,8 @@ const Reviews: React.FC = () => {
       <div className={styles.firstSection}>
         <div className={styles.header}>
           <h2 className={styles.title}>
-            5年連続、<br />
+            5年連続、<br className={styles.desktopOnlyBr} />
+            <br className={styles.mobileOnlyBr} />
             口コミだけで大阪No.１！
           </h2>
           <div className={styles.decorativeLinesBottom}>
@@ -36,7 +48,8 @@ const Reviews: React.FC = () => {
             <div className={styles.line} />
           </div>
           <p className={styles.subtitle}>
-            口コミだけで集客、5年連続No.1の実績（個人サロン）
+            口コミだけで集客、<br className={styles.mobileOnlyBr} />
+            5年連続No.1の実績（個人サロン）
           </p>
           <div className={styles.decorativeLinesBottom}>
             <div className={styles.line} />
@@ -56,8 +69,9 @@ const Reviews: React.FC = () => {
             <div className={styles.line} />
           </div>
           <h3 className={styles.reviewsTitle}>
-            高評価の口コミ<br />
-            GoogleレビューやLINEでのお客様の生の声）
+            高評価の口コミ<br className={styles.desktopOnlyBr} />
+            <br className={styles.mobileOnlyBr} />
+            （Googleレビューや<br className={styles.mobileOnlyBr} />LINEでのお客様の生の声）
           </h3>
           <div className={styles.decorativeLinesBottom}>
             <div className={styles.line} />
@@ -77,14 +91,7 @@ const Reviews: React.FC = () => {
                   </div>
                   <p className={styles.reviewerName}>{review.name}</p>
                 </div>
-                <p className={styles.reviewComment}>
-                  {review.comment.split('\n').map((line, i) => (
-                    <React.Fragment key={i}>
-                      {line}
-                      {i < review.comment.split('\n').length - 1 && <br />}
-                    </React.Fragment>
-                  ))}
-                </p>
+                <p className={styles.reviewComment}>{review.comment}</p>
               </div>
             ))}
           </div>

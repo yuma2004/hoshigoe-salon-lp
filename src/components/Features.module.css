@@ -154,9 +154,14 @@
   height: 32px;
 }
 
+/* ===== モバイル専用改行用クラス ===== */
+.mobileOnlyBr {
+  display: none;
+}
+
 @media (max-width: 1024px) {
   .features {
-    padding: 40px 0 40px;
+    padding: 20px 0 20px;
   }
 
   .header {
@@ -210,11 +215,18 @@
   .featureTitle {
     font-size: 16px;
     /* margin-bottom: 4px; */
+    /* モバイルでは長い文がはみ出さないように改行を許可 */
+    line-height: 1.5em;
+    word-break: break-all;
+    overflow-wrap: break-word;
   }
 
   .featureDescription {
     font-size: 16px;
-    line-height: 1em;
+    /* 上と同様に自然に折り返す */
+    line-height: 1.5em;
+    word-break: break-all;
+    overflow-wrap: break-word;
   }
 
   .ctaButton {
@@ -230,5 +242,9 @@
   .arrowIcon {
     width: 25px;
     height: 18px;
+  }
+
+  .mobileOnlyBr {
+    display: inline;
   }
 } 

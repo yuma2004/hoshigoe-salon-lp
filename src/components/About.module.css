@@ -63,7 +63,7 @@
 }
 
 .rightColumn > .pointItem:first-child {
-  margin-bottom: 40px;
+  margin-bottom: 10px; /* モバイルで余白を縮小 */
 }
 
 .rightColumn > .imageWrapper {
@@ -149,7 +149,7 @@
 
 @media (max-width: 1024px) {
   .about {
-    padding: 40px 20px 40px;
+    padding: 10px 20px 10px;
   }
 
   .header {
@@ -172,7 +172,7 @@
   .mobileLayout {
     display: flex;
     flex-direction: column;
-    gap: 60px;
+    gap: 0px; 
   }
 
   .desktopLayout {
@@ -186,7 +186,7 @@
 
   .leftColumn > .pointItem,
   .rightColumn > .pointItem {
-    margin: 20px 0 40px 0;
+    margin:0; /* 画像と紹介文間の余白を縮小 */
   }
 
   .imageWrapper {
@@ -197,6 +197,7 @@
 
   .pointItem {
     height: auto;  /* モバイルでは高さを自動に */
+    padding: 10px 0; /* 上下余白を縮小 */
   }
 
   .pointTitle {
@@ -223,7 +224,7 @@
     font-size: 16px;
     gap: 12px;
     border-radius: 3px;
-    margin: 40px auto;
+    margin:40px auto;
   }
 
   .arrowIcon {
@@ -231,7 +232,7 @@
     height: 18px;
   }
   .rightColumn > .imageWrapper {
-    margin-bottom: 20px;
+    margin-bottom: 10px; /* 下余白縮小 */
   }
 }
 

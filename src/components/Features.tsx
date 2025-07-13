@@ -4,8 +4,8 @@ import arrowIcon from '../assets/images/arrow_icon.svg';
 
 interface Feature {
   number: string;
-  title: string;
-  description: string;
+  title: React.ReactNode; // JSX を許可
+  description: React.ReactNode;
 }
 
 const Features: React.FC = () => {
@@ -17,23 +17,53 @@ const Features: React.FC = () => {
     },
     {
       number: "０2",
-      title: "高品質なエステティック認定機器使用",
-      description: "安全性と効果を最重視した純国産の認定マシン"
+      title: (
+        <>
+          高品質な
+          <br className={styles.mobileOnlyBr} />
+          エステティック認定機器使用
+        </>
+      ),
+      description: (
+        <>
+          安全性と効果を最重視した
+          <br className={styles.mobileOnlyBr} />
+          純国産の認定マシン
+        </>
+      )
     },
     {
       number: "０３",
       title: "オーダーメイド脱毛",
-      description: "マシンあなたの肌質に合わせた最適な施術"
+      description: (
+        <>
+          あなたの肌質に合わせた
+          <br className={styles.mobileOnlyBr} />
+          最適な施術
+        </>
+      )
     },
     {
       number: "０４",
       title: "施術内容の幅広さ",
-      description: "脱毛に加えて、エステ、眉毛ケア、整体なども同時施術可能"
+      description: (
+        <>
+          脱毛に加えて、エステ、眉毛ケア、
+          <br className={styles.mobileOnlyBr} />
+          整体なども同時施術可能
+        </>
+      )
     },
     {
       number: "０５",
       title: "「美容のサードプレイス」",
-      description: "施術だけでなく、リラックスできるコミュニティも提供"
+      description: (
+        <>
+          施術だけでなく、リラックスできる
+          <br className={styles.mobileOnlyBr} />
+          コミュニティも提供
+        </>
+      )
     }
   ];
 

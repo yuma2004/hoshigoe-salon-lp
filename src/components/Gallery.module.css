@@ -98,18 +98,22 @@
 @media (max-width: 1024px) {
   .gallery {
     height: 384px;
+    background-image: url('../assets/images/mobile_Gallery_img.png'); /* モバイル専用背景 */
+    background-size: cover;
+    background-position: center;
   }
 
   .gridContainer {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
+    display: none; /* 背景画像のみを表示 */
   }
 
-  /* Show only first image as background */
-  .imageWrapper:not(.image1) {
-    display: none;
+  /* 軽く暗くする程度に透過度を調整 */
+  .overlayContent {
+    background-color: rgba(13, 13, 13, 0.4); /* 0.8 → 0.4 に変更 */
   }
+
+  /* グリッド非表示なので不要 */
+  /* .imageWrapper:not(.image1) { display: none; } */
 
   .image1 {
     grid-column: 1 / 2;

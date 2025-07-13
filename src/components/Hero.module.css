@@ -165,7 +165,7 @@
   }
 
   .content {
-    padding: 40px 20px 0;
+    padding: 30px 30px 0;
     justify-content: flex-start;
   }
 
@@ -175,12 +175,14 @@
   }
 
   .tagline {
-    margin-bottom: 12px; /* 上下均一に調整 */
+    margin-bottom: 30px; /* 上下均一に調整 */
   }
 
   .tagline::before {
     width: 300px;
-    bottom: -8px;
+    bottom: -15px;
+    /* 左端は色付き、右端でフェードアウト */
+    background: linear-gradient(90deg, #C4B095 0%, #C4B095 80%, rgba(191, 164, 111, 0) 100%);
   }
 
   .subtitle {
@@ -189,12 +191,14 @@
 
   .subtitle::after {
     width: 300px;
-    bottom: -8px;
+    bottom: -15px;
+    background: linear-gradient(90deg, #C4B095 0%, #C4B095 80%, rgba(191, 164, 111, 0) 100%);
   }
 
   .titleLine1,
   .titleLine2 {
     font-size: 64px;
+    margin-top: 10px;
   }
 
   .description {

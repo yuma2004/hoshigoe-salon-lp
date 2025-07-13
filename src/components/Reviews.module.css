@@ -11,7 +11,7 @@
 
 .header {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 20px;
   position: relative;
 }
 
@@ -219,9 +219,19 @@
   opacity: 0.7;
 }
 
+/* ===== モバイル専用改行用クラス ===== */
+.mobileOnlyBr {
+  display: none;
+}
+
+/* ===== デスクトップ専用改行用クラス ===== */
+.desktopOnlyBr {
+  display: inline;
+}
+
 @media (max-width: 1024px) {
   .firstSection {
-    padding: 40px 20px 0;
+    padding: 20px 20px 0;
   }
 
   .decorativeLines {
@@ -238,6 +248,8 @@
   .line {
     flex: 1;
     max-width: 350px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     height: 1px; /* Ensure matches mobile spec */
   }
 
@@ -263,7 +275,7 @@
   }
 
   .reviewsHeader {
-    margin-bottom: 40px;
+    margin-bottom: 20px; /* モバイルではさらに縮小 */
   }
 
   .reviewsTitle {
@@ -293,17 +305,18 @@
   }
 
   .reviewCard {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
+    flex-direction: column;       /* 上下に並べる */
+    align-items: center;          /* アバターと名前を中央揃え */
+    gap: 12px; /* name とコメントの余白を縮小 */
     padding: 20px;
     height: auto;
   }
 
   .reviewerInfo {
-    flex-direction: row;
+    flex-direction: column; /* アバターの下に名前 */
+    align-items: center;
     width: auto;
-    gap: 15px;
+    gap: 10px;
   }
 
   .avatarBorder {
@@ -311,19 +324,23 @@
     height: 80px;
   }
 
-  .reviewerName {
-    font-size: 14px;
-    line-height: 3.143em;
-  }
-
   .reviewComment {
-    font-size: 16px;
-    line-height: 2em;
-    max-width: unset;
+    text-align: center; /* コメントを中央揃え */
+    width: 100%;
+    font-size: 16px; /* フォントサイズを微調整 */
+    line-height: 1.8em;
   }
 
   .reviewLink {
     font-size: 14px;
     margin-top: 20px;
+  }
+
+  .mobileOnlyBr {
+    display: inline;
+  }
+
+  .desktopOnlyBr {
+    display: none;
   }
 } 
