@@ -7,6 +7,7 @@
 
 .header {
   text-align: center;
+  margin-top: 25px;
   margin-bottom: 70px;
 }
 
@@ -61,8 +62,8 @@
 
 .numberBox {
   position: absolute;
-  width: 120px;
-  height: 120px;
+  width: 140px;
+  height: 140px;
   background-color: var(--text-black);
   border: 1px solid var(--primary-gold);
   display: flex;
@@ -78,11 +79,13 @@
 .featureLabel {
   position: static;
   margin: 0;
+  font-size: 24px;
 }
 
 .featureNumber {
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 600;
+  font-style: italic;
   line-height: 1em;
   letter-spacing: -0.1em;
   color: var(--text-white);
@@ -97,7 +100,7 @@
 
 .textContent {
   flex: 1;
-  padding: 28px 40px 28px 0;
+  padding: 28px 0px 28px 40px;
 }
 
 .featureTitle {
@@ -195,6 +198,7 @@
 
   .featureNumber {
     font-size: 16px;
+    font-style: italic;
     line-height: 1em;
     margin-top: -1px;
   }
@@ -205,12 +209,12 @@
 
   .featureTitle {
     font-size: 16px;
-    margin-bottom: 4px;
+    /* margin-bottom: 4px; */
   }
 
   .featureDescription {
     font-size: 16px;
-    line-height: 1.5em;
+    line-height: 1em;
   }
 
   .ctaButton {

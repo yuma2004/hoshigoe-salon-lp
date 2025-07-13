@@ -50,14 +50,15 @@
 }
 
 .questionMark {
-  width: 50px;
-  height: 50px;
+  width: 35px;
+  height: 35px;
   background-color: var(--primary-gold);
   border-radius: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  transform: rotate(45deg);
 }
 
 .questionMark span {
@@ -65,6 +66,7 @@
   font-weight: 700;
   line-height: 2.2em;
   color: var(--text-white);
+  transform: rotate(-45deg);
 }
 
 .question {
@@ -151,11 +153,13 @@
   .questionMark {
     width: 40px;
     height: 40px;
+    transform: rotate(45deg);
   }
 
   .questionMark span {
     font-size: 16px;
     line-height: 2.75em;
+    transform: rotate(-45deg);
   }
 
   .question {

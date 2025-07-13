@@ -56,17 +56,17 @@
 .tagline::before {
   content: '';
   position: absolute;
-  height: 2px;
+  height: 1px;
   background: linear-gradient(90deg, rgba(191, 164, 111, 0) 0%, #BFA46F 10%, #C4B095 50%, #BFA46F 90%, rgba(191, 164, 111, 0) 100%);
   width: 471px;
-  bottom: -20px;
+  bottom: -50px;
   left: 0;
 }
 
 .subtitle::after {
   content: '';
   position: absolute;
-  height: 2px;
+  height: 1px;
   background: linear-gradient(90deg, rgba(191, 164, 111, 0) 0%, #BFA46F 10%, #C4B095 50%, #BFA46F 90%, rgba(191, 164, 111, 0) 100%);
   width: 471px;
   bottom: -20px;
