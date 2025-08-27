@@ -36,7 +36,7 @@ const Reviews: React.FC = () => {
 
   return (
     <section className={styles.reviews}>
-      <div className={styles.firstSection}>
+      {/* <div className={styles.firstSection}>
         <div className={styles.header}>
           <h2 className={styles.title}>
             5年連続、<br className={styles.desktopOnlyBr} />
@@ -59,6 +59,39 @@ const Reviews: React.FC = () => {
 
         <div className={styles.videoPlaceholder}>
           <p>ご提供の動画を埋め込み予定</p>
+        </div>
+      </div> */}
+
+      <div className={styles.secondSection}>
+        <div className={styles.reviewsHeader}>
+          {/* <div className={styles.decorativeLines}>
+            <div className={styles.line} />
+            <div className={styles.line} />
+          </div> */}
+          <h3 className={`${styles.reviewsTitle} ${styles.pricingTitle}`}>
+            値段髭3900〜から都度払いで通えます！
+          </h3>
+          {/* <div className={styles.decorativeLinesBottom}>
+            <div className={styles.line} />
+            <div className={styles.line} />
+          </div> */}
+        </div>
+        <div className={styles.pricingSection}>
+          <div className={styles.pricingCard}>
+            <span className={styles.pricingBadge}>都度払いOK</span>
+            <div className={styles.priceRow}>
+              <span className={styles.priceLabel}>ヒゲ</span>
+              <span className={styles.priceValue}>3,900</span>
+              <span className={styles.priceUnit}>円〜</span>
+            </div>
+            {/* <p className={styles.pricingNote}>入会金・回数縛りなし</p> */}
+            <div className={styles.tagList}>
+              {/* <span className={styles.tag}>初回カウンセリング無料</span>
+              <span className={styles.tag}>駅チカ</span>
+              <span className={styles.tag}>夜21時まで</span> */}
+            </div>
+            <a href="#contact" className={styles.pricingCta}>今すぐ予約・お問い合わせ</a>
+          </div>
         </div>
       </div>
 
