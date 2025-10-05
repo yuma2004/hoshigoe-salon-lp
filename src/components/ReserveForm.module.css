@@ -13,68 +13,28 @@
   background:
     radial-gradient(35% 40% at 12% 18%, rgba(196, 176, 149, 0.2) 0%, rgba(196, 176, 149, 0) 70%),
     radial-gradient(40% 30% at 85% 12%, rgba(159, 139, 98, 0.18) 0%, rgba(159, 139, 98, 0) 65%);
-  opacity: 0.85;
+  opacity: 0.75;
   mix-blend-mode: screen;
 }
 
 .inner {
   position: relative;
   z-index: 1;
-  max-width: 1080px;
+  max-width: 960px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 40px;
-}
-
-.backAction {
-  display: flex;
-  justify-content: flex-start;
-}
-
-.backButton {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 20px;
-  border-radius: 999px;
-  border: 1px solid rgba(196, 176, 149, 0.45);
-  background: rgba(255, 255, 255, 0.02);
-  color: var(--primary-gold);
-  font-size: 13px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
-}
-
-.backButton::before {
-  content: '←';
-  font-size: 14px;
-  line-height: 1;
-}
-
-.backButton:hover {
-  border-color: var(--primary-gold);
-  background: rgba(255, 255, 255, 0.08);
-  transform: translateY(-1px);
+  gap: 48px;
 }
 
 .header {
   text-align: center;
   display: grid;
-  gap: 16px;
-  margin-bottom: 24px;
-}
-
-.kicker {
-  color: var(--primary-gold);
-  font-size: 13px;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
+  gap: 12px;
 }
 
 .title {
-  font-size: clamp(32px, 4vw, 48px);
+  font-size: clamp(32px, 4vw, 46px);
   font-weight: 600;
   letter-spacing: 0.08em;
 }
@@ -82,52 +42,18 @@
 .subtitle {
   color: rgba(255, 255, 255, 0.72);
   font-size: 16px;
-  max-width: 640px;
-  margin: 0 auto;
   line-height: 1.8;
-}
-
-.highlights {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  list-style: none;
-  gap: 12px;
-  padding: 0;
-  margin: 28px 0 0;
-}
-
-.highlights li {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 18px;
-  border-radius: 999px;
-  background: rgba(196, 176, 149, 0.14);
-  border: 1px solid rgba(196, 176, 149, 0.45);
-  color: var(--primary-gold);
-  font-size: 13px;
-  letter-spacing: 0.08em;
-  backdrop-filter: blur(4px);
-}
-
-.highlights li::before {
-  content: '';
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: linear-gradient(120deg, #bfa46f 0%, #eecb87 100%);
-  box-shadow: 0 0 12px rgba(238, 203, 135, 0.5);
+  max-width: 560px;
+  margin: 0 auto;
 }
 
 .card {
   position: relative;
-  padding: 52px clamp(24px, 3.8vw, 64px);
+  padding: 48px clamp(24px, 4vw, 64px);
   border-radius: 32px;
-  background: rgba(10, 10, 10, 0.88);
-  border: 1px solid rgba(196, 176, 149, 0.38);
-  box-shadow: 0 40px 120px rgba(0, 0, 0, 0.6);
+  background: rgba(10, 10, 10, 0.9);
+  border: 1px solid rgba(196, 176, 149, 0.34);
+  box-shadow: 0 32px 120px rgba(0, 0, 0, 0.55);
   overflow: hidden;
 }
 
@@ -138,22 +64,6 @@
   border-radius: 30px;
   border: 1px solid rgba(255, 255, 255, 0.04);
   pointer-events: none;
-}
-
-.cardIntro {
-  margin-bottom: 36px;
-  display: grid;
-  gap: 12px;
-  color: rgba(255, 255, 255, 0.82);
-  font-size: 15px;
-  line-height: 1.8;
-}
-
-.cardMeta {
-  font-size: 12px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.55);
 }
 
 .form {
@@ -174,7 +84,6 @@
   font-size: 20px;
   font-weight: 600;
   letter-spacing: 0.12em;
-  color: var(--text-white);
 }
 
 .sectionTitle::before {
@@ -183,11 +92,11 @@
   left: 0;
   top: 50%;
   transform: translateY(-50%);
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
   background: linear-gradient(120deg, #af986b 0%, #eecb87 100%);
-  box-shadow: 0 0 24px rgba(191, 164, 111, 0.45);
+  box-shadow: 0 0 20px rgba(191, 164, 111, 0.4);
 }
 
 .sectionDescription {
@@ -234,7 +143,7 @@
 .input,
 .select,
 .textarea {
-  border: 1px solid rgba(196, 176, 149, 0.35);
+  border: 1px solid rgba(196, 176, 149, 0.32);
   border-radius: 14px;
   padding: 14px 16px;
   font-size: 14px;
@@ -313,7 +222,7 @@
   flex-direction: column;
   gap: 16px;
   background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(196, 176, 149, 0.28);
+  border: 1px solid rgba(196, 176, 149, 0.24);
   border-radius: 20px;
   padding: 20px 24px;
 }
@@ -420,16 +329,7 @@
   }
 
   .inner {
-    gap: 32px;
-  }
-
-  .highlights li {
-    padding: 8px 14px;
-    font-size: 12px;
-  }
-
-  .cardIntro {
-    font-size: 14px;
+    gap: 36px;
   }
 
   .sectionTitle {
@@ -437,11 +337,11 @@
     letter-spacing: 0.08em;
   }
 
-  .submitButton {
-    width: 100%;
-    justify-content: center;
+  .actions {
+    gap: 12px;
   }
 
+  .submitButton,
   .secondaryButton {
     width: 100%;
     justify-content: center;

@@ -19,10 +19,10 @@ interface FormState {
   requests: string;
   contactMethod: ContactMethod;
   contactTime: string;
-  hairRemovalAreas: string[]; // Q1 複数選択
-  visitedOtherSalon: string; // Q2 サロン名
-  motivation: string; // Q3 自由記述
-  interestLevel: number; // Q4 1-5
+  hairRemovalAreas: string[];
+  visitedOtherSalon: string;
+  motivation: string;
+  interestLevel: number;
   agreed: boolean;
 }
 
@@ -48,19 +48,23 @@ const DEFAULT_STATE: FormState = {
 };
 
 const AREAS = [
-  'ヒゲ', 'ワキ', '腕', '手・指', '胸', '腹', '背中', 'VIO', '脚', '足・指', '眉', 'その他'
+  'ヒゲ',
+  'ワキ',
+  '腕',
+  '手・指',
+  '胸',
+  '腹',
+  '背中',
+  'VIO',
+  '脚',
+  '足・指',
+  '眉',
+  'その他',
 ];
 
 const MENUS = ['無料カウンセリング', 'お試し照射', 'ヒゲ脱毛', '全身脱毛', 'VIO脱毛', 'フェイシャル', '眉ケア', '整体'];
 const SHOPS = ['南船場店', 'その他（提携店舗）'];
-
 const TIMES = ['10:00', '12:00', '14:00', '16:00', '18:00', '20:00'];
-
-const HIGHLIGHTS = [
-  '完全予約制のプライベート空間',
-  'メンズ専門カウンセラーが対応',
-  '初回来店前の不安を丁寧にヒアリング',
-];
 
 const ReserveForm: React.FC = () => {
   const [state, setState] = useState<FormState>(DEFAULT_STATE);
@@ -112,57 +116,70 @@ const ReserveForm: React.FC = () => {
     setErrors({});
   };
 
-  const handleBackToLanding = () => {
-    window.location.hash = '';
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   return (
     <section className={styles.container}>
       <div className={styles.glow} />
       <div className={styles.inner}>
-        <div className={styles.backAction}>
-          <button type="button" className={styles.backButton} onClick={handleBackToLanding}>
-            トップへ戻る
-          </button>
-        </div>
-
-        <div className={styles.header}>
-          <p className={styles.kicker}>PREMIUM MEN&apos;S SALON HOSHIGOE</p>
+        <header className={styles.header}>
           <h1 className={styles.title}>無料カウンセリング予約フォーム</h1>
-          <p className={styles.subtitle}>必要事項をご入力いただくと、担当スタッフが24時間以内に折り返します。</p>
-          <ul className={styles.highlights}>
-            {HIGHLIGHTS.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </div>
+          <p className={styles.subtitle}>必要事項をご入力の上、送信してください。</p>
+        </header>
 
         <div className={styles.card}>
-          <div className={styles.cardIntro}>
-            <p>ご希望日時とお悩みを伺い、最適なプランをご提案します。オンラインでのご相談も対応可能です。</p>
-            <p className={styles.cardMeta}>所要時間 約30分 / ご予約は無料ですのでお気軽にご利用ください。</p>
-          </div>
           <form onSubmit={handleSubmit} noValidate className={styles.form}>
             <div className={styles.sectionBlock}>
               <h2 className={styles.sectionTitle}>基本情報</h2>
               <div className={styles.grid2}>
                 <div className={styles.field}>
-                  <label className={styles.label}>お名前<span className={styles.required}>*</span></label>
-                  <input className={styles.input} value={state.name} onChange={(e) => updateField('name', e.target.value)} placeholder="山田 太郎" />
+                  <label className={styles.label}>
+                    お名前<span className={styles.required}>*</span>
+                  </label>
+                  <input
+                    className={styles.input}
+                    value={state.name}
+                    onChange={(e) => updateField('name', e.target.value)}
+                    placeholder="山田 太郎"
+                  />
                   {errors.name && <span className={styles.error}>{errors.name}</span>}
                 </div>
                 <div className={styles.field}>
-                  <label className={styles.label}>メールアドレス<span className={styles.required}>*</span></label>
-                  <input className={styles.input} type="email" value={state.email} onChange={(e) => updateField('email', e.target.value)} placeholder="taro@example.com" />
+                  <label className={styles.label}>
+                    メールアドレス<span className={styles.required}>*</span>
+                  </label>
+                  <input
+                    className={styles.input}
+                    type="email"
+                    value={state.email}
+                    onChange={(e) => updateField('email', e.target.value)}
+                    placeholder="taro@example.com"
+                  />
                   {errors.email && <span className={styles.error}>{errors.email}</span>}
                 </div>
               </div>
-              <div className={styles.field}>
-                <label className={styles.label}>電話番号<span className={styles.required}>*</span></label>
-                <input className={styles.input} inputMode="tel" value={state.phone} onChange={(e) => updateField('phone', e.target.value)} placeholder="08012345678" />
-                <span className={styles.helper}>半角数字・ハイフンなし推奨</span>
-                {errors.phone && <span className={styles.error}>{errors.phone}</span>}
+              <div className={styles.grid2}>
+                <div className={styles.field}>
+                  <label className={styles.label}>
+                    電話番号<span className={styles.required}>*</span>
+                  </label>
+                  <input
+                    className={styles.input}
+                    inputMode="tel"
+                    value={state.phone}
+                    onChange={(e) => updateField('phone', e.target.value)}
+                    placeholder="08012345678"
+                  />
+                  <span className={styles.helper}>半角数字・ハイフンなし推奨</span>
+                  {errors.phone && <span className={styles.error}>{errors.phone}</span>}
+                </div>
+                <div className={styles.field}>
+                  <label className={styles.label}>連絡希望時間帯</label>
+                  <input
+                    className={styles.input}
+                    value={state.contactTime}
+                    onChange={(e) => updateField('contactTime', e.target.value)}
+                    placeholder="平日18〜21時 希望 など"
+                  />
+                </div>
               </div>
             </div>
 
@@ -171,19 +188,31 @@ const ReserveForm: React.FC = () => {
               <div className={styles.grid2}>
                 <div className={styles.field}>
                   <label className={styles.label}>ご希望メニュー</label>
-                  <select className={styles.select} value={state.menu} onChange={(e) => updateField('menu', e.target.value)}>
+                  <select
+                    className={styles.select}
+                    value={state.menu}
+                    onChange={(e) => updateField('menu', e.target.value)}
+                  >
                     <option value="">選択してください</option>
                     {MENUS.map((m) => (
-                      <option key={m} value={m}>{m}</option>
+                      <option key={m} value={m}>
+                        {m}
+                      </option>
                     ))}
                   </select>
                 </div>
                 <div className={styles.field}>
                   <label className={styles.label}>店舗（該当時）</label>
-                  <select className={styles.select} value={state.shop} onChange={(e) => updateField('shop', e.target.value)}>
+                  <select
+                    className={styles.select}
+                    value={state.shop}
+                    onChange={(e) => updateField('shop', e.target.value)}
+                  >
                     <option value="">選択してください</option>
                     {SHOPS.map((s) => (
-                      <option key={s} value={s}>{s}</option>
+                      <option key={s} value={s}>
+                        {s}
+                      </option>
                     ))}
                   </select>
                 </div>
@@ -197,14 +226,25 @@ const ReserveForm: React.FC = () => {
                 <div className={styles.dateTimeRow} key={`preference-${i}`}>
                   <div className={styles.field}>
                     <label className={styles.label}>第{i + 1}希望 日付</label>
-                    <input className={styles.input} type="date" value={state.preferences[i].date} onChange={(e) => updatePreference(i, 'date', e.target.value)} />
+                    <input
+                      className={styles.input}
+                      type="date"
+                      value={state.preferences[i].date}
+                      onChange={(e) => updatePreference(i, 'date', e.target.value)}
+                    />
                   </div>
                   <div className={styles.field}>
                     <label className={styles.label}>第{i + 1}希望 時間</label>
-                    <select className={styles.select} value={state.preferences[i].time} onChange={(e) => updatePreference(i, 'time', e.target.value)}>
+                    <select
+                      className={styles.select}
+                      value={state.preferences[i].time}
+                      onChange={(e) => updatePreference(i, 'time', e.target.value)}
+                    >
                       <option value="">選択してください</option>
                       {TIMES.map((t) => (
-                        <option key={t} value={t}>{t}</option>
+                        <option key={t} value={t}>
+                          {t}
+                        </option>
                       ))}
                     </select>
                   </div>
@@ -214,7 +254,7 @@ const ReserveForm: React.FC = () => {
             </div>
 
             <div className={styles.sectionBlock}>
-              <h2 className={styles.sectionTitle}>ご要望・連絡希望手段／時間帯</h2>
+              <h2 className={styles.sectionTitle}>ご要望・連絡希望手段</h2>
               <div className={styles.grid2}>
                 <div className={styles.field}>
                   <label className={styles.label}>連絡希望手段</label>
@@ -225,19 +265,26 @@ const ReserveForm: React.FC = () => {
                       { key: 'email', label: 'メール' },
                     ].map((opt) => (
                       <label key={opt.key}>
-                        <input type="radio" name="contactMethod" checked={state.contactMethod === (opt.key as ContactMethod)} onChange={() => updateField('contactMethod', opt.key as ContactMethod)} /> {opt.label}
+                        <input
+                          type="radio"
+                          name="contactMethod"
+                          checked={state.contactMethod === (opt.key as ContactMethod)}
+                          onChange={() => updateField('contactMethod', opt.key as ContactMethod)}
+                        />{' '}
+                        {opt.label}
                       </label>
                     ))}
                   </div>
                 </div>
                 <div className={styles.field}>
-                  <label className={styles.label}>連絡希望時間帯</label>
-                  <input className={styles.input} value={state.contactTime} onChange={(e) => updateField('contactTime', e.target.value)} placeholder="平日18〜21時 希望 など" />
+                  <label className={styles.label}>ご要望（自由記述）</label>
+                  <textarea
+                    className={styles.textarea}
+                    value={state.requests}
+                    onChange={(e) => updateField('requests', e.target.value)}
+                    placeholder="気になる点や体質などがあればご記入ください"
+                  />
                 </div>
-              </div>
-              <div className={styles.field}>
-                <label className={styles.label}>ご要望（自由記述）</label>
-                <textarea className={styles.textarea} value={state.requests} onChange={(e) => updateField('requests', e.target.value)} placeholder="気になる点や体質などがあればご記入ください" />
               </div>
             </div>
 
@@ -248,10 +295,20 @@ const ReserveForm: React.FC = () => {
                 <div className={styles.checkboxGroup}>
                   {AREAS.map((a) => (
                     <label key={a}>
-                      <input type="checkbox" checked={state.hairRemovalAreas.includes(a)} onChange={(e) => {
-                        const checked = e.target.checked;
-                        updateField('hairRemovalAreas', checked ? [...state.hairRemovalAreas, a] : state.hairRemovalAreas.filter((x) => x !== a));
-                      }} /> {a}
+                      <input
+                        type="checkbox"
+                        checked={state.hairRemovalAreas.includes(a)}
+                        onChange={(e) => {
+                          const checked = e.target.checked;
+                          updateField(
+                            'hairRemovalAreas',
+                            checked
+                              ? [...state.hairRemovalAreas, a]
+                              : state.hairRemovalAreas.filter((x) => x !== a)
+                          );
+                        }}
+                      />{' '}
+                      {a}
                     </label>
                   ))}
                 </div>
@@ -259,16 +316,33 @@ const ReserveForm: React.FC = () => {
               <div className={styles.grid2}>
                 <div className={styles.field}>
                   <label className={styles.label}>2 他の脱毛サロンに行ったことはあります？（サロン名）</label>
-                  <input className={styles.input} value={state.visitedOtherSalon} onChange={(e) => updateField('visitedOtherSalon', e.target.value)} placeholder="（例）◯◯サロン" />
+                  <input
+                    className={styles.input}
+                    value={state.visitedOtherSalon}
+                    onChange={(e) => updateField('visitedOtherSalon', e.target.value)}
+                    placeholder="（例）◯◯サロン"
+                  />
                 </div>
                 <div className={styles.field}>
                   <label className={styles.label}>4 脱毛に対する興味度（1-5）</label>
-                  <input className={styles.input} type="number" min={1} max={5} value={state.interestLevel} onChange={(e) => updateField('interestLevel', Number(e.target.value))} />
+                  <input
+                    className={styles.input}
+                    type="number"
+                    min={1}
+                    max={5}
+                    value={state.interestLevel}
+                    onChange={(e) => updateField('interestLevel', Number(e.target.value))}
+                  />
                 </div>
               </div>
               <div className={styles.field}>
                 <label className={styles.label}>3 脱毛しようと思ったきっかけ、タイミング</label>
-                <textarea className={styles.textarea} value={state.motivation} onChange={(e) => updateField('motivation', e.target.value)} placeholder="自由記述" />
+                <textarea
+                  className={styles.textarea}
+                  value={state.motivation}
+                  onChange={(e) => updateField('motivation', e.target.value)}
+                  placeholder="自由記述"
+                />
               </div>
             </div>
 
@@ -280,7 +354,12 @@ const ReserveForm: React.FC = () => {
                   <li>キャンセル規定／個人情報の取扱いへの同意</li>
                 </ul>
                 <label className={styles.agreementCheck}>
-                  <input type="checkbox" checked={state.agreed} onChange={(e) => updateField('agreed', e.target.checked)} /> 同意します<span className={styles.required}>*</span>
+                  <input
+                    type="checkbox"
+                    checked={state.agreed}
+                    onChange={(e) => updateField('agreed', e.target.checked)}
+                  />{' '}
+                  同意します<span className={styles.required}>*</span>
                 </label>
                 {errors.agreed && <div className={styles.error}>{errors.agreed}</div>}
               </div>
@@ -291,7 +370,14 @@ const ReserveForm: React.FC = () => {
                 <span>送信する</span>
                 <img src={arrowIcon} alt="矢印" width={16} height={16} />
               </button>
-              <button type="button" className={styles.secondaryButton} onClick={() => { setState(DEFAULT_STATE); setErrors({}); }}>
+              <button
+                type="button"
+                className={styles.secondaryButton}
+                onClick={() => {
+                  setState(DEFAULT_STATE);
+                  setErrors({});
+                }}
+              >
                 リセット
               </button>
             </div>
