@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import './App.css';
 import Hero from './components/Hero';
 import Features from './components/Features';
@@ -7,8 +7,10 @@ import About from './components/About';
 import Gallery from './components/Gallery';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
+import ReserveForm from './components/ReserveForm';
 
 function App() {
+  const [hash, setHash] = useState<string>(() => window.location.hash);
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries, obs) => {
@@ -31,15 +33,32 @@ function App() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const onHashChange = () => setHash(window.location.hash);
+    window.addEventListener('hashchange', onHashChange);
+    return () => window.removeEventListener('hashchange', onHashChange);
+  }, []);
+
+  const isReserve = useMemo(() => hash === '#/reserve', [hash]);
+
   return (
     <div className="App mobile-centered">
-      <Hero />
-      <Features />
-      <Reviews />
-      <About />
-      <FAQ />
-      <Gallery />
-      <Footer />
+      {isReserve ? (
+        <>
+          <ReserveForm />
+          <Footer />
+        </>
+      ) : (
+        <>
+          <Hero />
+          <Features />
+          <Reviews />
+          <About />
+          <FAQ />
+          <Gallery />
+          <Footer />
+        </>
+      )}
     </div>
   );
 }

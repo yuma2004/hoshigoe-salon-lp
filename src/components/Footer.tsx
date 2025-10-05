@@ -27,7 +27,7 @@ const Footer: React.FC = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.content}>
-        <button className={styles.ctaButton}>
+        <button className={styles.ctaButton} onClick={() => { window.location.hash = '#/reserve'; }}>
           <span>無料カウンセリングを申し込む</span>
           <img src={arrowIcon} alt="矢印" className={styles.arrowIcon} />
         </button>
