@@ -116,10 +116,20 @@ const ReserveForm: React.FC = () => {
     setErrors({});
   };
 
+  const handleBackToLanding = () => {
+    window.location.hash = '';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <section className={styles.container}>
       <div className={styles.glow} />
       <div className={styles.inner}>
+        <div className={styles.backAction}>
+          <button type="button" className={styles.backButton} onClick={handleBackToLanding}>
+            トップへ戻る
+          </button>
+        </div>
         <header className={styles.header}>
           <h1 className={styles.title}>無料カウンセリング予約フォーム</h1>
           <p className={styles.subtitle}>必要事項をご入力の上、送信してください。</p>
