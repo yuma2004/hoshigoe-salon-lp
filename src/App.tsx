@@ -8,6 +8,7 @@ import Gallery from './components/Gallery';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
 import ReserveForm from './components/ReserveForm';
+import ThanksPage from './components/ThanksPage';
 
 function App() {
   const [hash, setHash] = useState<string>(() => window.location.hash);
@@ -40,14 +41,14 @@ function App() {
   }, []);
 
   const isReserve = useMemo(() => hash === '#/reserve', [hash]);
+  const isThanks = useMemo(() => hash === '#/thanks', [hash]);
 
   return (
     <div className="App mobile-centered">
       {isReserve ? (
-        <>
-          <ReserveForm />
-          <Footer />
-        </>
+        <ReserveForm />
+      ) : isThanks ? (
+        <ThanksPage />
       ) : (
         <>
           <Hero />

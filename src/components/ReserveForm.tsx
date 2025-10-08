@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from 'react';
+import { useForm } from '@formspree/react';
 import styles from './ReserveForm.module.css';
 import arrowIcon from '../assets/images/arrow_icon.svg';
 
@@ -69,6 +70,7 @@ const TIMES = ['10:00', '12:00', '14:00', '16:00', '18:00', '20:00'];
 const ReserveForm: React.FC = () => {
   const [state, setState] = useState<FormState>(DEFAULT_STATE);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [formspreeState, submitToFormspree] = useForm('xnngbzkp');
   const isValidEmail = (value: string) => /.+@.+\..+/.test(value);
   const isValidPhone = (value: string) => /^(?:0\d{9,10}|\+?\d{10,15})$/.test(value.replace(/[-\s]/g, ''));
 
@@ -105,15 +107,38 @@ const ReserveForm: React.FC = () => {
     return Object.keys(nextErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
 
-    const payload = { ...state };
-    console.log('submit reserve form', payload);
-    alert('送信が完了しました。担当者よりご連絡いたします。');
-    setState(DEFAULT_STATE);
-    setErrors({});
+    // Formspreeに送信するデータを準備
+    const formData = {
+      name: state.name,
+      email: state.email,
+      phone: state.phone,
+      contactTime: state.contactTime,
+      menu: state.menu,
+      shop: state.shop,
+      preferences: state.preferences.map((p, i) => `第${i + 1}希望: ${p.date} ${p.time}`).filter(p => p.includes(':') && !p.includes('第') || p.includes('希望:') && p.split('希望:')[1].trim()),
+      contactMethod: state.contactMethod,
+      requests: state.requests,
+      hairRemovalAreas: state.hairRemovalAreas.join(', '),
+      visitedOtherSalon: state.visitedOtherSalon,
+      motivation: state.motivation,
+      interestLevel: state.interestLevel.toString(),
+    };
+
+    try {
+      await submitToFormspree(formData);
+      
+      // 送信成功時はサンクスページへ遷移
+      if (formspreeState.succeeded) {
+        window.location.hash = '#/thanks';
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setErrors({ submit: '送信に失敗しました。もう一度お試しください。' });
+    }
   };
 
   const handleBackToLanding = () => {
@@ -375,9 +400,15 @@ const ReserveForm: React.FC = () => {
               </div>
             </div>
 
+            {errors.submit && <div className={styles.error}>{errors.submit}</div>}
+            
             <div className={styles.actions}>
-              <button type="submit" className={styles.submitButton} disabled={!requiredOk}>
-                <span>送信する</span>
+              <button 
+                type="submit" 
+                className={styles.submitButton} 
+                disabled={!requiredOk || formspreeState.submitting}
+              >
+                <span>{formspreeState.submitting ? '送信中...' : '送信する'}</span>
                 <img src={arrowIcon} alt="矢印" width={16} height={16} />
               </button>
               <button
@@ -387,6 +418,7 @@ const ReserveForm: React.FC = () => {
                   setState(DEFAULT_STATE);
                   setErrors({});
                 }}
+                disabled={formspreeState.submitting}
               >
                 リセット
               </button>
