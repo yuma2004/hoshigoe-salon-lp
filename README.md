@@ -1,46 +1,62 @@
-# Getting Started with Create React App
+# Rêve beauty salon LP
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+大阪・南船場のメンズ専門サロン「Rêve beauty salon」のランディングページです。無料カウンセリング予約フォームとサロン紹介コンテンツを中心に構成されています。
 
-## Available Scripts
+## 主な機能
+- トップセクションから予約フォームへの誘導CTA
+- サロンの特徴／口コミ／FAQ／ギャラリーセクション
+- Formspree を利用した無料カウンセリング予約フォーム
+- GitHub Pages（`https://yuma2004.github.io/hoshigoe-salon-lp/`）への静的デプロイ
 
-In the project directory, you can run:
+## 技術スタック
+- React + TypeScript（Create React App ベース）
+- CSS Modules によるセクション別スタイリング
+- Formspree API を利用したフォーム送信
+- GitHub Pages へのデプロイ（`gh-pages` パッケージ）
 
-### `npm start`
+## セットアップ
+```bash
+npm install
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 開発
+```bash
+npm start
+```
+ブラウザで `http://localhost:3000` が自動的に開きます。ホットリロードが有効です。
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Lint / テスト / ビルド
+```bash
+npm run lint   # （今後 Phase 5 で導入予定）
+npm test       # Jest + React Testing Library
+npm run build  # 静的ファイルを build/ に出力
+```
 
-### `npm test`
+## デプロイ
+GitHub Pages を利用して公開しています。
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+npm run deploy
+```
 
-### `npm run build`
+上記コマンドは `npm run build` を実行した後、`build/` ディレクトリを `gh-pages` ブランチへデプロイします。
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## ディレクトリ構成（抜粋）
+```
+├─ public/          静的アセットとHTMLテンプレート
+├─ src/
+│  ├─ assets/       画像などのアセット
+│  ├─ components/   セクション単位のReactコンポーネント
+│  ├─ App.tsx       画面構成（Phase 2 でルーター化予定）
+│  └─ index.tsx     エントリーポイント
+├─ PLAN.md          改善計画
+└─ TODO.md          実装タスク管理
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## フォーム連携について
+- Formspree フォームID: `xnngbzkp`
+- 送信成功時はサンクスページへ遷移する設計です（Phase 2/3 でルーター整備予定）。
+- 送信内容は Formspree ダッシュボードで確認してください。
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 今後の改善
+フェーズ別の詳細な改善内容と進捗は `PLAN.md` と `TODO.md` を参照してください。

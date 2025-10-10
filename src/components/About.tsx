@@ -3,7 +3,8 @@ import styles from './About.module.css';
 import salonImage1 from '../assets/images/salon_logo_wall.png';
 import salonImage2 from '../assets/images/salon_image_2.png';
 import salonImage3 from '../assets/images/salon_image_3.png';
-import arrowIcon from '../assets/images/arrow_icon.svg';
+import CTAButton from './CTAButton';
+import { CTA_LABELS } from '../constants/cta';
 
 interface Point {
   title: string;
@@ -39,7 +40,14 @@ const About: React.FC = () => {
         <div className={styles.desktopLayout}>
           {/* ① 画像１ */}
           <div className={styles.imageWrapper}>
-            <img src={salonImage1} alt="サロン画像1" className={styles.logoImage} />
+            <img
+              src={salonImage1}
+              alt="サロン画像1"
+              className={styles.logoImage}
+              loading="lazy"
+              decoding="async"
+              sizes="(min-width: 1024px) 25vw, 80vw"
+            />
           </div>
 
           {/* ② ポイント０（完全紹介制） */}
@@ -65,12 +73,24 @@ const About: React.FC = () => {
 
           {/* ④ 画像２ */}
           <div className={styles.imageWrapper}>
-            <img src={salonImage2} alt="サロン画像2" />
+            <img
+              src={salonImage2}
+              alt="サロン画像2"
+              loading="lazy"
+              decoding="async"
+              sizes="(min-width: 1024px) 25vw, 80vw"
+            />
           </div>
 
           {/* ⑤ 画像３ */}
           <div className={styles.imageWrapper}>
-            <img src={salonImage3} alt="サロン画像3" />
+            <img
+              src={salonImage3}
+              alt="サロン画像3"
+              loading="lazy"
+              decoding="async"
+              sizes="(min-width: 1024px) 25vw, 80vw"
+            />
           </div>
 
           {/* ⑥ ポイント２（美と健康〜） */}
@@ -93,7 +113,14 @@ const About: React.FC = () => {
           <div className={styles.leftColumn}>
             {/* ① 画像１ */}
             <div className={styles.imageWrapper}>
-              <img src={salonImage1} alt="サロン画像1" className={styles.logoImage} />
+              <img
+                src={salonImage1}
+                alt="サロン画像1"
+                className={styles.logoImage}
+                loading="lazy"
+                decoding="async"
+                sizes="(min-width: 1024px) 25vw, 80vw"
+              />
             </div>
 
             {/* ② ポイント０（完全紹介制） */}
@@ -105,7 +132,13 @@ const About: React.FC = () => {
 
             {/* ③ 画像２ */}
             <div className={styles.imageWrapper}>
-              <img src={salonImage2} alt="サロン画像2" />
+              <img
+                src={salonImage2}
+                alt="サロン画像2"
+                loading="lazy"
+                decoding="async"
+                sizes="(min-width: 1024px) 25vw, 80vw"
+              />
             </div>
           </div>
 
@@ -126,8 +159,14 @@ const About: React.FC = () => {
 
             {/* ⑤ 画像３ */}
             <div className={styles.imageWrapper}>
-              <img src={salonImage3} alt="サロン画像3" />
-            </div>
+            <img
+              src={salonImage3}
+              alt="サロン画像3"
+              loading="lazy"
+              decoding="async"
+              sizes="(min-width: 1024px) 25vw, 80vw"
+            />
+          </div>
 
             {/* ⑥ ポイント２（美と健康〜） */}
             <div className={styles.pointItem}>
@@ -146,10 +185,11 @@ const About: React.FC = () => {
         </div>
       </div>
 
-      <button className={styles.ctaButton}>
-        <span>サロンのこだわりを知る</span>
-        <img src={arrowIcon} alt="矢印" className={styles.arrowIcon} />
-      </button>
+      <CTAButton
+        className={styles.ctaButton}
+        iconClassName={styles.arrowIcon}
+        label={CTA_LABELS.about}
+      />
     </section>
   );
 };

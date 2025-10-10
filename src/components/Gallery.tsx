@@ -19,9 +19,15 @@ const Gallery: React.FC = () => {
     <section className={styles.gallery}>
       <div className={styles.gridContainer}>
         {images.map((image, index) => (
-          <div key={index} className={`${styles.imageWrapper} ${image.className}`}>
+          <div key={image.alt} className={`${styles.imageWrapper} ${image.className}`}>
             <div className={styles.imageMask}>
-              <img src={image.src} alt={image.alt} />
+              <img
+                src={image.src}
+                alt={image.alt}
+                loading="lazy"
+                decoding="async"
+                sizes="(min-width: 1024px) 20vw, 80vw"
+              />
             </div>
           </div>
         ))}

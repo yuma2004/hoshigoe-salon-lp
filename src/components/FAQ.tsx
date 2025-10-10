@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './FAQ.module.css';
-import arrowIcon from '../assets/images/arrow_icon.svg';
+import CTAButton from './CTAButton';
+import { CTA_LABELS } from '../constants/cta';
 
 interface FAQItem {
   question: string;
@@ -10,25 +11,25 @@ interface FAQItem {
 const FAQ: React.FC = () => {
   const faqItems: FAQItem[] = [
     {
-      question: "予約方法",
-      answer: "公式LINEから簡単に予約可能です。LINEでの相談もOK。"
+      question: '予約方法',
+      answer: '公式LINEから簡単に予約可能です。LINEでの相談もOK。',
     },
     {
-      question: "キャンセルポリシー",
-      answer: "前日・当日のキャンセルはキャンセル料が発生します。"
+      question: 'キャンセルポリシー',
+      answer: '前日・当日のキャンセルはキャンセル料が発生します。',
     },
     {
-      question: "施術部位",
-      answer: "部位によりますが、平均して30分～1時間程度です。"
+      question: '施術部位',
+      answer: '部位によりますが、平均して30分～1時間程度です。',
     },
     {
-      question: "痛みの程度",
-      answer: "痛みはほどんどなく、リラックスした状態で施術を受けていただけます。"
+      question: '痛みの程度',
+      answer: '痛みはほどんどなく、リラックスした状態で施術を受けていただけます。',
     },
     {
-      question: "通う回数",
-      answer: "お客様の肌の状態により異なりますが、1～3回で効果を実感する方が多いです。"
-    }
+      question: '通う回数',
+      answer: 'お客様の肌の状態により異なりますが、1～3回で効果を実感する方が多いです。',
+    },
   ];
 
   return (
@@ -37,9 +38,9 @@ const FAQ: React.FC = () => {
 
       <div className={styles.faqList}>
         {faqItems.map((item, index) => (
-          <div key={index} className={styles.faqItem}>
+          <div key={item.question} className={styles.faqItem}>
             <div className={styles.questionBox}>
-              <div className={styles.questionMark}>
+              <div className={styles.questionMark} aria-hidden="true">
                 <span>？</span>
               </div>
               <h3 className={styles.question}>{item.question}</h3>
@@ -49,12 +50,13 @@ const FAQ: React.FC = () => {
         ))}
       </div>
 
-      <button className={styles.ctaButton}>
-        <span>無料カウンセリングを申し込む</span>
-        <img src={arrowIcon} alt="矢印" className={styles.arrowIcon} />
-      </button>
+      <CTAButton
+        className={styles.ctaButton}
+        iconClassName={styles.arrowIcon}
+        label={CTA_LABELS.primary}
+      />
     </section>
   );
 };
 
-export default FAQ; 
+export default FAQ;

@@ -3,3 +3,30 @@
 // expect(element).toHaveTextContent(/react/i)
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom';
+
+if (typeof window !== 'undefined' && !('IntersectionObserver' in window)) {
+  class IntersectionObserverMock {
+    observe() {
+      return null;
+    }
+    unobserve() {
+      return null;
+    }
+    disconnect() {
+      return null;
+    }
+    takeRecords() {
+      return [];
+    }
+  }
+
+  Object.defineProperty(window, 'IntersectionObserver', {
+    writable: true,
+    configurable: true,
+    value: IntersectionObserverMock,
+  });
+}
+
+if (typeof window !== 'undefined') {
+  window.scrollTo = () => {};
+}

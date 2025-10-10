@@ -1,22 +1,23 @@
 import React from 'react';
 import styles from './Features.module.css';
-import arrowIcon from '../assets/images/arrow_icon.svg';
+import CTAButton from './CTAButton';
+import { CTA_LABELS } from '../constants/cta';
 
 interface Feature {
   number: string;
-  title: React.ReactNode; // JSX を許可
+  title: React.ReactNode;
   description: React.ReactNode;
 }
 
 const Features: React.FC = () => {
   const features: Feature[] = [
     {
-      number: "０1",
-      title: "都度払い制で安心",
-      description: "お財布にも優しく、気軽に試せます"
+      number: '０1',
+      title: '都度払い制で安心',
+      description: 'お財布にも優しく、気軽に試せます',
     },
     {
-      number: "０2",
+      number: '０2',
       title: (
         <>
           高品質な
@@ -30,48 +31,50 @@ const Features: React.FC = () => {
           <br className={styles.mobileOnlyBr} />
           純国産の認定マシン
         </>
-      )
+      ),
     },
     {
-      number: "０３",
-      title: "オーダーメイド脱毛",
+      number: '０３',
+      title: 'オーダーメイド脱毛',
       description: (
         <>
           あなたの肌質に合わせた
           <br className={styles.mobileOnlyBr} />
           最適な施術
         </>
-      )
+      ),
     },
     {
-      number: "０４",
-      title: "施術内容の幅広さ",
+      number: '０４',
+      title: '施術内容の幅広さ',
       description: (
         <>
           脱毛に加えて、エステ、眉毛ケア、
           <br className={styles.mobileOnlyBr} />
           整体なども同時施術可能
         </>
-      )
+      ),
     },
     {
-      number: "０５",
-      title: "「美容のサードプレイス」",
+      number: '０５',
+      title: '「美容のサードプレイス」',
       description: (
         <>
           施術だけでなく、リラックスできる
           <br className={styles.mobileOnlyBr} />
           コミュニティも提供
         </>
-      )
-    }
+      ),
+    },
   ];
 
   return (
     <section className={styles.features}>
       <div className={styles.header}>
-        <h2 className={styles.subtitle}>あなたの理想の肌を、</h2>
-        <h1 className={styles.title}>メンズ脱毛で叶えます</h1>
+        <p className={styles.subtitle}>
+          あなたの理想の肌を、
+        </p>
+        <h2 className={styles.title}>メンズ脱毛で叶えます</h2>
       </div>
 
       <div className={styles.featuresList}>
@@ -91,12 +94,13 @@ const Features: React.FC = () => {
         ))}
       </div>
 
-      <button className={styles.ctaButton}>
-        <span>詳しいサービス内容をチェック</span>
-        <img src={arrowIcon} alt="矢印" className={styles.arrowIcon} />
-      </button>
+      <CTAButton
+        className={styles.ctaButton}
+        iconClassName={styles.arrowIcon}
+        label={CTA_LABELS.features}
+      />
     </section>
   );
 };
 
-export default Features; 
+export default Features;

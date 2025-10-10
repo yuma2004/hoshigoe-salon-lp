@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React from 'react';
 import './App.css';
 import Hero from './components/Hero';
 import Features from './components/Features';
@@ -9,45 +9,18 @@ import FAQ from './components/FAQ';
 import Footer from './components/Footer';
 import ReserveForm from './components/ReserveForm';
 import ThanksPage from './components/ThanksPage';
+import { useRoutePath } from './router/RouterProvider';
+import { useRevealOnScroll } from './hooks/useRevealOnScroll';
 
 function App() {
-  const [hash, setHash] = useState<string>(() => window.location.hash);
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries, obs) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            obs.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    const targets = document.querySelectorAll('section, footer');
-    targets.forEach(el => {
-      el.classList.add('reveal');
-      observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    const onHashChange = () => setHash(window.location.hash);
-    window.addEventListener('hashchange', onHashChange);
-    return () => window.removeEventListener('hashchange', onHashChange);
-  }, []);
-
-  const isReserve = useMemo(() => hash === '#/reserve', [hash]);
-  const isThanks = useMemo(() => hash === '#/thanks', [hash]);
+  const route = useRoutePath();
+  useRevealOnScroll();
 
   return (
     <div className="App mobile-centered">
-      {isReserve ? (
+      {route === '/reserve' ? (
         <ReserveForm />
-      ) : isThanks ? (
+      ) : route === '/thanks' ? (
         <ThanksPage />
       ) : (
         <>

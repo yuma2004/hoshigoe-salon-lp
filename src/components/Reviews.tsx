@@ -68,9 +68,9 @@ const Reviews: React.FC = () => {
             <div className={styles.line} />
             <div className={styles.line} />
           </div> */}
-          <h3 className={`${styles.reviewsTitle} ${styles.pricingTitle}`}>
+          <h2 className={`${styles.reviewsTitle} ${styles.pricingTitle}`}>
             値段髭3900〜から都度払いで通えます！
-          </h3>
+          </h2>
           {/* <div className={styles.decorativeLinesBottom}>
             <div className={styles.line} />
             <div className={styles.line} />
@@ -101,11 +101,11 @@ const Reviews: React.FC = () => {
             <div className={styles.line} />
             <div className={styles.line} />
           </div>
-          <h3 className={styles.reviewsTitle}>
+          <h2 className={styles.reviewsTitle}>
             高評価の口コミ<br className={styles.desktopOnlyBr} />
             <br className={styles.mobileOnlyBr} />
             （Googleレビューや<br className={styles.mobileOnlyBr} />LINEでのお客様の生の声）
-          </h3>
+          </h2>
           <div className={styles.decorativeLinesBottom}>
             <div className={styles.line} />
             <div className={styles.line} />
@@ -119,7 +119,14 @@ const Reviews: React.FC = () => {
                 <div className={styles.reviewerInfo}>
                   <div className={styles.avatarWrapper}>
                     <div className={styles.avatarBorder}>
-                      <img src={review.avatar} alt={review.name} className={styles.avatar} />
+                      <img
+                        src={review.avatar}
+                        alt={review.name}
+                        className={styles.avatar}
+                        loading="lazy"
+                        decoding="async"
+                        sizes="80px"
+                      />
                     </div>
                   </div>
                   <p className={styles.reviewerName}>{review.name}</p>

@@ -1,10 +1,13 @@
 import React from 'react';
 import styles from './ThanksPage.module.css';
 import arrowIcon from '../assets/images/arrow_icon.svg';
+import { useNavigate } from '../router/RouterProvider';
 
 const ThanksPage: React.FC = () => {
+  const navigate = useNavigate();
+
   const handleBackToLanding = () => {
-    window.location.hash = '';
+    navigate('/', { replace: true });
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -20,7 +23,7 @@ const ThanksPage: React.FC = () => {
         
         <div className={styles.content}>
           <div className={styles.iconContainer}>
-            <div className={styles.checkIcon}>✓</div>
+            <div className={styles.checkIcon} aria-hidden="true">✓</div>
           </div>
           
           <h1 className={styles.title}>送信完了</h1>
@@ -43,7 +46,7 @@ const ThanksPage: React.FC = () => {
               onClick={handleBackToLanding}
             >
               <span>トップページへ戻る</span>
-              <img src={arrowIcon} alt="矢印" width={16} height={16} />
+              <img src={arrowIcon} alt="" width={16} height={16} aria-hidden="true" />
             </button>
           </div>
         </div>

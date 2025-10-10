@@ -1,13 +1,21 @@
 import React from 'react';
 import styles from './Hero.module.css';
 import mainVisual from '../assets/images/main_visual.png';
-import arrowIcon from '../assets/images/arrow_icon.svg';
+import CTAButton from './CTAButton';
+import { CTA_LABELS } from '../constants/cta';
 
 const Hero: React.FC = () => {
   return (
     <section className={styles.hero}>
       <div className={styles.bgOverlay} />
-      <img src={mainVisual} alt="メインビジュアル" className={styles.bgImage} />
+      <img
+        src={mainVisual}
+        alt="メインビジュアル"
+        className={styles.bgImage}
+        loading="eager"
+        decoding="async"
+        sizes="100vw"
+      />
       
       <div className={styles.content}>
         <div className={styles.tagline}>口コミだけで5年連続大阪No.1</div>
@@ -24,7 +32,7 @@ const Hero: React.FC = () => {
         </p>
         
         {/* モバイル用改行位置調整バージョン */}
-        <p className={`${styles.description} ${styles.descMobile}`}>
+        <p className={`${styles.description} ${styles.descMobile}`} aria-hidden="true">
           単発照射の<br />
           高品質な施術、<br />
           完全紹介制で<br />
@@ -33,10 +41,11 @@ const Hero: React.FC = () => {
           してみませんか？
         </p>
         
-        <button className={styles.ctaButton} onClick={() => { window.location.hash = '#/reserve'; }}>
-          <span>無料カウンセリングを申し込む</span>
-          <img src={arrowIcon} alt="矢印" className={styles.arrowIcon} />
-        </button>
+        <CTAButton
+          className={styles.ctaButton}
+          iconClassName={styles.arrowIcon}
+          label={CTA_LABELS.primary}
+        />
       </div>
       
       <div className={styles.gradientOverlay} />

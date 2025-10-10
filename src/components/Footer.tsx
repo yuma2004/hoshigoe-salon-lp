@@ -1,41 +1,20 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import styles from './Footer.module.css';
-import arrowIcon from '../assets/images/arrow_icon.svg';
+import CTAButton from './CTAButton';
+import { CTA_LABELS } from '../constants/cta';
 
 const Footer: React.FC = () => {
-  const linksRef = useRef<HTMLDivElement>(null);
-  const bottomRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const elements = [linksRef.current, bottomRef.current].filter(Boolean) as Element[];
-    const observer = new IntersectionObserver(
-      (entries, obs) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add(styles.visible);
-            obs.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    elements.forEach(el => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <footer className={styles.footer}>
       <div className={styles.content}>
-        <button className={styles.ctaButton} onClick={() => { window.location.hash = '#/reserve'; }}>
-          <span>無料カウンセリングを申し込む</span>
-          <img src={arrowIcon} alt="矢印" className={styles.arrowIcon} />
-        </button>
+        <CTAButton
+          className={styles.ctaButton}
+          iconClassName={styles.arrowIcon}
+          label={CTA_LABELS.primary}
+          aria-label="無料カウンセリングを予約する"
+        />
         
-        <div
-          ref={linksRef}
-          className={`${styles.linksSection} ${styles.animateSection}`}
-        >
+        <div className={styles.linksSection} data-reveal>
           <div className={styles.leftSection}>
             <div className={styles.column}>
               <h3 className={styles.columnTitle}>SNS</h3>
@@ -81,10 +60,7 @@ const Footer: React.FC = () => {
         </div>
       </div>
 
-      <div
-        ref={bottomRef}
-        className={`${styles.bottomBar} ${styles.animateSection}`}
-      >
+      <div className={styles.bottomBar} data-reveal>
         <div className={styles.legalLinks}>
           <a href="/hoshigoe-salon-lp/terms.html" target="_blank" rel="noopener noreferrer">特定商取引法表記</a>
           <span className={styles.separator}>|</span>
