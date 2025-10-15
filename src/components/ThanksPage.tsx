@@ -1,10 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './ThanksPage.module.css';
 import arrowIcon from '../assets/images/arrow_icon.svg';
 import { useNavigate } from '../router/RouterProvider';
 
 const ThanksPage: React.FC = () => {
   const navigate = useNavigate();
+
+  // 成果発生タグ
+  useEffect(() => {
+    (function acsTrack(){
+      var PV = "pi4gezaquzss";
+      var KEYS = {cid : ["CL_", "ACT_", "cid_auth_get_type"], plid : ["PL_", "APT_", "plid_auth_get_type"]};
+      var turl = "https://jass-net.com/track.php?p=" + PV;
+      var cks = document.cookie.split("; ").reduce(function(ret: any, s: string){ var kv = s.split("="); if(kv[0] && kv[1]) ret[kv[0]] = kv[1]; return ret; }, [] as any);
+      turl = Object.keys(KEYS).reduce(function(url, k){ var vk = (KEYS as any)[k][0] + PV; var tk = (KEYS as any)[k][1] + PV; var v = "", t = ""; if(cks[vk]){ v = cks[vk]; if(cks[tk]) t = cks[tk]; }else if(localStorage.getItem(vk)){ v = localStorage.getItem(vk) || ""; t = "ls"; } if(v) url += "&" + k + "=" + v; if(t) url += "&" + (KEYS as any)[k][2] + "=" + t; return url; }, turl);
+      var xhr = new XMLHttpRequest(); xhr.open("GET", turl); xhr.send();
+    })();
+  }, []);
 
   const handleBackToLanding = () => {
     navigate('/', { replace: true });
