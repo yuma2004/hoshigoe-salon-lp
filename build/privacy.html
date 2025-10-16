@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>プライバシーポリシー - Rêve Beauty Salon</title>
+    <!-- 既存デザインの共通スタイルを読み込み -->
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="animations.css" />
+    <link rel="stylesheet" href="responsive.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+        /* プライバシーポリシーページ専用のスタイル */
+        .privacy-container {
+            background-color: #1c1c1c;
+            color: #ffffff;
+            min-height: 100vh;
+            padding: 80px 5vw 60px;
+        }
+        .privacy-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-family: 'Noto Serif JP', serif;
+        }
+        .privacy-title {
+            font-size: clamp(32px, 4vw, 48px);
+            font-weight: 600;
+            color: #c4b095;
+            text-align: center;
+            margin-bottom: 50px;
+            letter-spacing: 2px;
+        }
+        .privacy-section {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #333333;
+        }
+        .privacy-section:last-child {
+            border-bottom: none;
+        }
+        .privacy-section h2 {
+            font-size: clamp(20px, 2.5vw, 28px);
+            font-weight: 600;
+            color: #c4b095;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        .privacy-section p,
+        .privacy-section li {
+            font-size: clamp(16px, 1.8vw, 20px);
+            line-height: 1.8;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+        }
+        .privacy-section ul {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+        .privacy-section li {
+            margin-bottom: 10px;
+        }
+        .back-to-home {
+            text-align: center;
+            margin-top: 60px;
+        }
+        .back-link {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(91deg, #dcc090 5.33%, #99855e 98.96%);
+            color: #000000;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+        }
+        .back-link:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0px 6px 15px rgba(196, 176, 149, 0.4);
+        }
+        /* レスポンシブ対応 */
+        @media (max-width: 768px) {
+            .privacy-container {
+                padding: 60px 3vw 40px;
+            }
+            .privacy-section {
+                margin-bottom: 30px;
+                padding-bottom: 20px;
+            }
+        }
+        /* モバイルでもページを表示。準備中表示は常に非表示 */
+        .mobile-coming-soon {
+            display: none;
+        }
+        @media (max-width: 1023px) {
+            .privacy-container {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 準備中表示（デスクトップ以外） -->
+    <div class="mobile-coming-soon">
+        <div class="coming-soon-content">
+            <h1>準備中です</h1>
+            <p>モバイルでのご利用はお待ちください</p>
+        </div>
+    </div>
+    <div class="privacy-container">
+        <div class="privacy-content">
+            <h1 class="privacy-title">プライバシーポリシー</h1>
+
+            <div class="privacy-section">
+                <h2>1. 個人情報の定義</h2>
+                <p>本ポリシーにおいて「個人情報」とは、生存する個人に関する情報で、氏名、生年月日、その他の記述等により特定の個人を識別できるもの、または他の情報と容易に照合することができ、それにより特定の個人を識別できるものを指します。</p>
+            </div>
+
+            <div class="privacy-section">
+                <h2>2. 個人情報の収集方法</h2>
+                <p>当サロンはお客様がお問い合わせフォームの送信、予約手続き等を行う際に、氏名、電話番号、メールアドレスなどの個人情報を取得することがあります。</p>
+            </div>
+
+            <div class="privacy-section">
+                <h2>3. 個人情報の利用目的</h2>
+                <ul>
+                    <li>予約確認やサービス提供のためのご連絡</li>
+                    <li>サービス向上を目的としたアンケートのお願い</li>
+                    <li>新サービス・キャンペーン等のご案内</li>
+                    <li>法令または利用規約に違反する行為への対応</li>
+                </ul>
+                <p>上記の目的以外で利用する場合は、事前にお客様の同意を得た上で実施いたします。</p>
+            </div>
+
+            <div class="privacy-section">
+                <h2>4. 個人情報の第三者提供</h2>
+                <p>当サロンは、次の場合を除き、ご本人の同意なく第三者に個人情報を提供することはありません。</p>
+                <ul>
+                    <li>法令に基づく場合</li>
+                    <li>人の生命、身体または財産の保護に必要がある場合</li>
+                    <li>公衆衛生の向上や児童の健全育成推進に特に必要な場合</li>
+                    <li>国の機関等への協力が必要な場合</li>
+                </ul>
+            </div>
+
+            <div class="privacy-section">
+                <h2>5. 個人情報の管理</h2>
+                <p>当サロンは、個人情報の漏えい、滅失または毀損の防止、その他個人情報の安全管理のために必要かつ適切な措置を講じます。</p>
+            </div>
+
+            <div class="privacy-section">
+                <h2>6. 個人情報の開示・訂正・削除</h2>
+                <p>ご本人から個人情報の開示、訂正、追加、削除、利用停止を求められた場合には、ご本人確認の上、速やかに対応いたします。</p>
+            </div>
+
+            <div class="privacy-section">
+                <h2>7. Cookie（クッキー）等の利用について</h2>
+                <p>当サロンのウェブサイトでは、利用状況の把握やサービス向上を目的としてCookieを利用することがあります。ブラウザの設定により、Cookieの受け取りを拒否することができますが、サービスの一部がご利用いただけなくなる場合があります。</p>
+            </div>
+
+            <div class="privacy-section">
+                <h2>8. アクセス解析ツールについて</h2>
+                <p>当サイトは、Google LLC が提供する Google Analytics を利用してアクセス解析を行っています。Google Analytics は Cookie を利用してトラフィックデータを収集します。詳細は Google のプライバシーポリシーをご確認ください。</p>
+            </div>
+
+            <div class="privacy-section">
+                <h2>9. プライバシーポリシーの変更</h2>
+                <p>法令の改正や必要に応じて、本ポリシーの内容を変更することがあります。変更後の内容は当サイトに掲載した時点で効力を生じるものとします。</p>
+            </div>
+
+            <div class="privacy-section">
+                <h2>10. お問い合わせ</h2>
+                <p>本ポリシーに関するお問い合わせは下記までお願いいたします。</p>
+                <ul>
+                    <li>サロン名：Rêve Beauty Salon</li>
+                    <li>メールアドレス：reve2025.0401@gmail.com</li>
+                    <li>電話番号：080-1995-4121</li>
+                </ul>
+            </div>
+
+            <div class="back-to-home">
+                <a href="index.html" class="back-link">ページに戻る</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
