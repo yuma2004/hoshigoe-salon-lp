@@ -6,6 +6,11 @@
 .pnp.js
 .package-lock.json
 
+# production/build outputs
+/build
+/dist
+/out
+
 # testing
 /coverage
 
