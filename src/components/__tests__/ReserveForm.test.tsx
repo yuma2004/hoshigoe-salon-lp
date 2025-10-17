@@ -17,7 +17,7 @@ const renderForm = () =>
   render(
     <RouterProvider>
       <ReserveForm />
-    </RouterProvider>
+    </RouterProvider>,
   );
 
 describe('ReserveForm', () => {
@@ -47,9 +47,11 @@ describe('ReserveForm', () => {
     await userEvent.click(screen.getByRole('button', { name: '送信する' }));
 
     expect(await screen.findByText('お名前は必須です')).toBeInTheDocument();
-    expect(screen.getByText('メール形式が正しくありません')).toBeInTheDocument();
+    expect(screen.getByText('メールアドレスの形式が正しくありません')).toBeInTheDocument();
     expect(screen.getByText('電話番号は必須です')).toBeInTheDocument();
-    expect(screen.getByText('第1〜第3希望のいずれかを入力してください')).toBeInTheDocument();
+    expect(
+      screen.getByText('第1〜第3希望のいずれかに日付と時間をご入力ください'),
+    ).toBeInTheDocument();
     expect(mockSubmit).not.toHaveBeenCalled();
   });
 
@@ -59,7 +61,10 @@ describe('ReserveForm', () => {
     await userEvent.type(screen.getByLabelText(/お名前/), '山田 太郎');
     await userEvent.type(screen.getByLabelText(/メールアドレス/), 'test@example.com');
     await userEvent.type(screen.getByLabelText(/電話番号/), '080-1234-5678');
-    await userEvent.type(screen.getByLabelText(/連絡希望時間帯/), '平日18時以降');
+    await userEvent.type(
+      screen.getByLabelText(/連絡希望時間帯/),
+      '平日18時以降だと助かります',
+    );
 
     const [firstDateInput] = screen.getAllByLabelText(/第1希望 日付/);
     await userEvent.type(firstDateInput, '2025-05-01');
@@ -77,7 +82,7 @@ describe('ReserveForm', () => {
           phone: '08012345678',
           preferences: ['第1希望: 2025-05-01 12:00'],
           agreed: '同意済み',
-        })
+        }),
       );
     });
   });

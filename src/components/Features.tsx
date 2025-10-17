@@ -12,57 +12,53 @@ interface Feature {
 const Features: React.FC = () => {
   const features: Feature[] = [
     {
-      number: '０1',
-      title: '都度払い制で安心',
-      description: 'お財布にも優しく、気軽に試せます',
+      number: '01',
+      title: '都度払いで気軽に通える',
+      description: 'コース契約は不要。生活リズムや予算に合わせて無理なく継続できます。',
     },
     {
-      number: '０2',
+      number: '02',
       title: (
         <>
-          高品質な
+          痛みを抑えた
           <br className={styles.mobileOnlyBr} />
-          エステティック認定機器使用
+          最新エステ脱毛機を採用
         </>
       ),
       description: (
         <>
-          安全性と効果を最重視した
-          <br className={styles.mobileOnlyBr} />
-          純国産の認定マシン
-        </>
-      ),
-    },
-    {
-      number: '０３',
-      title: 'オーダーメイド脱毛',
-      description: (
-        <>
-          あなたの肌質に合わせた
-          <br className={styles.mobileOnlyBr} />
-          最適な施術
+          ヒゲからボディまで幅広い毛質に対応。<br className={styles.mobileOnlyBr} />
+          じっくり丁寧に照射します。
         </>
       ),
     },
     {
-      number: '０４',
-      title: '施術内容の幅広さ',
+      number: '03',
+      title: 'オーダーメイドの施術プラン',
       description: (
         <>
-          脱毛に加えて、エステ、眉毛ケア、
-          <br className={styles.mobileOnlyBr} />
-          整体なども同時施術可能
+          カウンセリングでお悩みをヒアリングし、<br className={styles.mobileOnlyBr} />
+          最適な組み合わせをご提案。
         </>
       ),
     },
     {
-      number: '０５',
-      title: '「美容のサードプレイス」',
+      number: '04',
+      title: '男性専門サロンならではの知見',
       description: (
         <>
-          施術だけでなく、リラックスできる
-          <br className={styles.mobileOnlyBr} />
-          コミュニティも提供
+          メンズ脱毛専門スタッフが対応。<br className={styles.mobileOnlyBr} />
+          仕上がりや理想のスタイルも気軽に相談。
+        </>
+      ),
+    },
+    {
+      number: '05',
+      title: '完全紹介制のプライベート空間',
+      description: (
+        <>
+          他のお客様と時間が重ならない予約制。<br className={styles.mobileOnlyBr} />
+          安心して施術に集中できます。
         </>
       ),
     },
@@ -71,10 +67,8 @@ const Features: React.FC = () => {
   return (
     <section className={styles.features}>
       <div className={styles.header}>
-        <p className={styles.subtitle}>
-          あなたの理想の肌を、
-        </p>
-        <h2 className={styles.title}>メンズ脱毛で叶えます</h2>
+        <p className={styles.subtitle}>あなたの悩みに寄り添う、</p>
+        <h2 className={styles.title}>Rêve beauty salon のこだわり</h2>
       </div>
 
       <div className={styles.featuresList}>
@@ -82,7 +76,7 @@ const Features: React.FC = () => {
           <div key={index} className={styles.featureItem}>
             <div className={styles.featureBox}>
               <div className={styles.numberBox}>
-                <span className={styles.featureLabel}>特徴</span>
+                <span className={styles.featureLabel}>POINT</span>
                 <span className={styles.featureNumber}>{feature.number}</span>
               </div>
               <div className={styles.textContent}>

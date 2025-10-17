@@ -8,17 +8,17 @@ import bgImage5 from '../assets/images/bg_image_5.png';
 
 const Gallery: React.FC = () => {
   const images = [
-    { src: bgImage1, alt: 'ギャラリー画像1', className: styles.image1 },
-    { src: bgImage2, alt: 'ギャラリー画像2', className: styles.image2 },
-    { src: bgImage3, alt: 'ギャラリー画像3', className: styles.image3 },
-    { src: bgImage4, alt: 'ギャラリー画像4', className: styles.image4 },
-    { src: bgImage5, alt: 'ギャラリー画像5', className: styles.image5 },
+    { src: bgImage1, alt: 'サロンの施術風景', className: styles.image1 },
+    { src: bgImage2, alt: 'サロンの内装写真', className: styles.image2 },
+    { src: bgImage3, alt: '施術前のカウンセリングの様子', className: styles.image3 },
+    { src: bgImage4, alt: '落ち着いた待合スペース', className: styles.image4 },
+    { src: bgImage5, alt: 'ケア用品が並ぶ棚', className: styles.image5 },
   ];
 
   return (
     <section className={styles.gallery}>
       <div className={styles.gridContainer}>
-        {images.map((image, index) => (
+        {images.map((image) => (
           <div key={image.alt} className={`${styles.imageWrapper} ${image.className}`}>
             <div className={styles.imageMask}>
               <img
@@ -32,21 +32,20 @@ const Gallery: React.FC = () => {
           </div>
         ))}
       </div>
-      
+
       <div className={styles.overlayContent}>
         <h2 className={styles.title}>
-          今すぐ、無料カウンセリングで<br />
-          理想の肌を手に入れよう！
+          無料カウンセリングで
+          <br />
+          理想の肌を手に入れよう
         </h2>
         <p className={styles.description}>
-          あなたの肌質に合わせた<br />
-          最適な脱毛プランをご提案します。<br />
-          初めての方でも<br />
-          安心してご相談いただけます。
+          あなたの肌質に合わせた最適なプランを専任スタッフがご提案します。<br />
+          初めての方も安心してご相談ください。
         </p>
       </div>
     </section>
   );
 };
 
-export default Gallery; 
+export default Gallery;

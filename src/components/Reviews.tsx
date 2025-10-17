@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Reviews.module.css';
 import voiceA from '../assets/images/voice_a.png';
 import voiceB from '../assets/images/voice_b.png';
+import CTAButton from './CTAButton';
 
 interface Review {
   name: string;
@@ -12,85 +13,52 @@ interface Review {
 const Reviews: React.FC = () => {
   const reviews: Review[] = [
     {
-      name: "Aさん（30代・営業職）",
+      name: 'Aさん（30代・会社員）',
       avatar: voiceA,
       comment: (
         <>
-          「施術が丁寧で、痛みも少なく、仕上がりに満足しています。<br className={styles.mobileOnlyBr} />
-          仕事帰りに通えるので助かります！」
+          「ヒゲ剃りの刺激で常に肌荒れしていましたが、通い始めてから朝の身支度がとても楽になりました。」
         </>
-      )
+      ),
     },
     {
-      name: "Bさん（28歳・IT業界）",
+      name: 'Bさん（20代・ITエンジニア）',
       avatar: voiceB,
       comment: (
         <>
-          「高級感のある店内で、<br className={styles.mobileOnlyBr} />
-          スタッフさんの対応も素晴らしい。<br className={styles.mobileOnlyBr} />
-          安心して通えます。」
+          「完全予約制で周りを気にせず通えるのが嬉しい。スタッフさんの丁寧な声かけで毎回安心してお任せできます。」
         </>
-      )
-    }
+      ),
+    },
   ];
 
   return (
     <section className={styles.reviews}>
-      {/* <div className={styles.firstSection}>
-        <div className={styles.header}>
-          <h2 className={styles.title}>
-            5年連続、<br className={styles.desktopOnlyBr} />
-            <br className={styles.mobileOnlyBr} />
-            口コミだけで大阪No.１！
-          </h2>
-          <div className={styles.decorativeLinesBottom}>
-            <div className={styles.line} />
-            <div className={styles.line} />
-          </div>
-          <p className={styles.subtitle}>
-            口コミだけで集客、<br className={styles.mobileOnlyBr} />
-            5年連続No.1の実績（個人サロン）
-          </p>
-          <div className={styles.decorativeLinesBottom}>
-            <div className={styles.line} />
-            <div className={styles.line} />
-          </div>
-        </div>
-
-        <div className={styles.videoPlaceholder}>
-          <p>ご提供の動画を埋め込み予定</p>
-        </div>
-      </div> */}
-
       <div className={styles.secondSection}>
         <div className={styles.reviewsHeader}>
-          {/* <div className={styles.decorativeLines}>
-            <div className={styles.line} />
-            <div className={styles.line} />
-          </div> */}
           <h2 className={`${styles.reviewsTitle} ${styles.pricingTitle}`}>
-            値段髭3900〜から都度払いで通えます！
+            ヒゲ脱毛 1回 3,900円（税込）から体験可能
           </h2>
-          {/* <div className={styles.decorativeLinesBottom}>
-            <div className={styles.line} />
-            <div className={styles.line} />
-          </div> */}
         </div>
         <div className={styles.pricingSection}>
           <div className={styles.pricingCard}>
-            <span className={styles.pricingBadge}>都度払いOK</span>
+            <span className={styles.pricingBadge}>都度払い OK</span>
             <div className={styles.priceRow}>
-              <span className={styles.priceLabel}>ヒゲ</span>
+              <span className={styles.priceLabel}>ヒゲ全体</span>
               <span className={styles.priceValue}>3,900</span>
-              <span className={styles.priceUnit}>円〜</span>
+              <span className={styles.priceUnit}>円／回</span>
             </div>
-            {/* <p className={styles.pricingNote}>入会金・回数縛りなし</p> */}
             <div className={styles.tagList}>
-              {/* <span className={styles.tag}>初回カウンセリング無料</span>
-              <span className={styles.tag}>駅チカ</span>
-              <span className={styles.tag}>夜21時まで</span> */}
+              <span className={styles.tag}>カウンセリング無料</span>
+              <span className={styles.tag}>肌質チェック付き</span>
+              <span className={styles.tag}>当日予約もご相談ください</span>
             </div>
-            <a href="#contact" className={styles.pricingCta}>今すぐ予約・お問い合わせ</a>
+            <CTAButton
+              className={styles.pricingCta}
+              iconClassName={styles.pricingCtaIcon}
+              label="空き状況を相談する"
+              to="/reserve"
+            />
           </div>
         </div>
       </div>
@@ -102,9 +70,9 @@ const Reviews: React.FC = () => {
             <div className={styles.line} />
           </div>
           <h2 className={styles.reviewsTitle}>
-            高評価の口コミ<br className={styles.desktopOnlyBr} />
-            <br className={styles.mobileOnlyBr} />
-            （Googleレビューや<br className={styles.mobileOnlyBr} />LINEでのお客様の生の声）
+            お客様の口コミ
+            <br className={styles.desktopOnlyBr} />
+            <span className={styles.mobileOnlyBr}>（Google レビュー / LINE 公式アカウント）</span>
           </h2>
           <div className={styles.decorativeLinesBottom}>
             <div className={styles.line} />
@@ -121,7 +89,7 @@ const Reviews: React.FC = () => {
                     <div className={styles.avatarBorder}>
                       <img
                         src={review.avatar}
-                        alt={review.name}
+                        alt={`${review.name}の写真`}
                         className={styles.avatar}
                         loading="lazy"
                         decoding="async"
@@ -143,7 +111,7 @@ const Reviews: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            口コミページへのリンク（参考用）＞
+            Google レビューをもっと見る（外部サイト）
           </a>
         </div>
       </div>
@@ -151,4 +119,4 @@ const Reviews: React.FC = () => {
   );
 };
 
-export default Reviews; 
+export default Reviews;

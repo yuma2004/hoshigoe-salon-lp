@@ -20,18 +20,18 @@ const AREAS = [
   '腕',
   '手・指',
   '胸',
-  '腹',
+  'お腹',
   '背中',
   'VIO',
   '脚',
   '足・指',
-  '眉',
+  'うなじ',
   'その他',
 ] as const;
 
 const TIMES = ['10:00', '12:00', '14:00', '16:00', '18:00', '20:00'] as const;
 const CONTACT_METHOD_OPTIONS: { value: ContactMethod; label: string }[] = [
-  { value: 'either', label: 'どちらでも' },
+  { value: 'either', label: 'どちらでもよい' },
   { value: 'phone', label: '電話' },
   { value: 'email', label: 'メール' },
 ];
@@ -47,12 +47,12 @@ const preferenceSchema = z.object({
 const reserveFormSchema = z
   .object({
     name: z.string().min(1, 'お名前は必須です'),
-    email: z.string().email('メール形式が正しくありません'),
+    email: z.string().email('メールアドレスの形式が正しくありません'),
     phone: z
       .string()
       .min(1, '電話番号は必須です')
       .refine((value) => PHONE_REGEX.test(sanitizePhone(value)), {
-        message: '電話番号の形式が正しくありません',
+        message: 'ハイフンなしで11桁の数字を入力してください',
       }),
     preferences: z.array(preferenceSchema).length(3),
     requests: z.string(),
@@ -63,7 +63,7 @@ const reserveFormSchema = z
     motivation: z.string(),
     interestLevel: z.coerce.number().min(1).max(5),
     agreed: z.boolean().refine((value) => value, {
-      message: '同意事項へのチェックが必要です',
+      message: '同意事項へのチェックが必須です',
     }),
   })
   .superRefine((data, ctx) => {
@@ -72,7 +72,7 @@ const reserveFormSchema = z
       ctx.addIssue({
         code: z.ZodIssueCode.custom,
         path: ['preferences'],
-        message: '第1〜第3希望のいずれかを入力してください',
+        message: '第1〜第3希望のいずれかに日付と時間をご入力ください',
       });
     }
   });
@@ -116,12 +116,13 @@ const DEFAULT_VALUES: ReserveFormValues = {
 const buildPreferencesPayload = (preferences: Array<DateTimePreference>): string[] =>
   preferences
     .map((pref, index) =>
-      pref?.date && pref?.time ? `第${index + 1}希望: ${pref.date} ${pref.time}` : null
+      pref?.date && pref?.time ? `第${index + 1}希望: ${pref.date} ${pref.time}` : null,
     )
     .filter((value): value is string => Boolean(value));
 
 const ReserveForm: React.FC = () => {
-  const [formspreeState, submitToFormspree, resetFormspree] = useFormspree<FormspreePayload>('xnngbzkp');
+  const [formspreeState, submitToFormspree, resetFormspree] =
+    useFormspree<FormspreePayload>('xnngbzkp');
   const navigate = useNavigate();
   const quickDateOptions = useMemo(() => {
     const today = new Date();
@@ -135,10 +136,10 @@ const ReserveForm: React.FC = () => {
     const daysUntilWeekend = day === 6 ? 0 : day === 0 ? 6 : 6 - day;
 
     return [
-      { label: '今日', value: buildISODate(0) },
+      { label: '本日', value: buildISODate(0) },
       { label: '明日', value: buildISODate(1) },
       { label: '今週末', value: buildISODate(daysUntilWeekend) },
-      { label: '来週の同曜日', value: buildISODate(7) },
+      { label: '来週の同じ曜日', value: buildISODate(7) },
     ];
   }, []);
 
@@ -169,7 +170,7 @@ const ReserveForm: React.FC = () => {
     if (formspreeState.errors) {
       setError('root', {
         type: 'formspree',
-        message: '送信に失敗しました。もう一度お試しください。',
+        message: '送信に失敗しました。恐れ入りますが、時間を空けて再度お試しください。',
       });
     } else {
       clearErrors('root');
@@ -198,7 +199,7 @@ const ReserveForm: React.FC = () => {
       console.error('Form submission error', error);
       setError('root', {
         type: 'submit',
-        message: '送信に失敗しました。もう一度お試しください。',
+        message: '送信に失敗しました。恐れ入りますが、時間を空けて再度お試しください。',
       });
     }
   };
@@ -206,7 +207,8 @@ const ReserveForm: React.FC = () => {
   const submissionError = errors.root?.message;
   const submitting = isSubmitting || formspreeState.submitting;
   const preferenceErrorMessage =
-    errors.preferences?.message || (errors.preferences ? '第1〜第3希望のいずれかを入力してください' : undefined);
+    errors.preferences?.message ||
+    (errors.preferences ? '第1〜第3希望のいずれかに日付と時間をご入力ください' : undefined);
 
   const handleReset = () => {
     resetForm(DEFAULT_VALUES);
@@ -214,7 +216,7 @@ const ReserveForm: React.FC = () => {
   };
 
   return (
-    <section className={styles.container}>
+    <section id="reserve" className={styles.container}>
       <div className={styles.glow} />
       <div className={styles.inner}>
         <div className={styles.backAction}>
@@ -231,13 +233,15 @@ const ReserveForm: React.FC = () => {
         </div>
         <header className={styles.header}>
           <h1 className={styles.title}>無料カウンセリング予約フォーム</h1>
-          <p className={styles.subtitle}>必要事項をご入力の上、送信してください。</p>
+          <p className={styles.subtitle}>
+            ご希望内容をご入力のうえ送信してください。折り返し担当者よりご連絡いたします。
+          </p>
         </header>
 
         <div className={styles.card}>
           <form onSubmit={handleSubmit(onSubmit)} noValidate className={styles.form}>
             <div className={styles.sectionBlock}>
-              <h2 className={styles.sectionTitle}>基本情報</h2>
+              <h2 className={styles.sectionTitle}>お客様情報</h2>
               <div className={styles.grid2}>
                 <div className={styles.field}>
                   <label className={styles.label} htmlFor="name">
@@ -246,7 +250,7 @@ const ReserveForm: React.FC = () => {
                   <input
                     id="name"
                     className={styles.input}
-                    placeholder="山田 太郎"
+                    placeholder="例）山田 太郎"
                     aria-invalid={Boolean(errors.name)}
                     {...register('name')}
                   />
@@ -288,7 +292,7 @@ const ReserveForm: React.FC = () => {
                     aria-invalid={Boolean(errors.phone)}
                     {...register('phone')}
                   />
-                  <span className={styles.helper}>半角数字・ハイフンなし推奨</span>
+                  <span className={styles.helper}>ハイフン無しでご入力ください</span>
                   {errors.phone && (
                     <span className={styles.error} role="alert" aria-live="assertive">
                       {errors.phone.message}
@@ -302,7 +306,7 @@ const ReserveForm: React.FC = () => {
                   <input
                     id="contactTime"
                     className={styles.input}
-                    placeholder="平日18〜21時 希望 など"
+                    placeholder="例）平日18時以降だと助かります"
                     aria-invalid={Boolean(errors.contactTime)}
                     {...register('contactTime')}
                   />
@@ -310,12 +314,16 @@ const ReserveForm: React.FC = () => {
               </div>
             </div>
 
-
             <div className={styles.sectionBlock}>
               <h2 className={styles.sectionTitle}>ご希望日時</h2>
               <p className={styles.sectionDescription}>
-                第1希望〜第3希望までご入力ください。調整が必要な場合は追ってご連絡します。
+                第1〜第3希望までご入力ください。お急ぎの場合は第1希望のみでも構いません。
               </p>
+              {preferenceErrorMessage && (
+                <div className={styles.error} role="alert" aria-live="assertive">
+                  {preferenceErrorMessage}
+                </div>
+              )}
               {[0, 1, 2].map((index) => (
                 <div className={styles.dateTimeRow} key={`preference-${index}`}>
                   <div className={styles.field}>
@@ -329,14 +337,21 @@ const ReserveForm: React.FC = () => {
                       aria-invalid={Boolean(errors.preferences)}
                       {...register(`preferences.${index}.date` as const)}
                     />
-                    <div className={styles.quickDates} role="group" aria-label={`第${index + 1}希望 日付候補`}>
+                    <div
+                      className={styles.quickDates}
+                      role="group"
+                      aria-label={`第${index + 1}希望の候補日`}
+                    >
                       {quickDateOptions.map((option) => (
                         <button
                           type="button"
                           key={`${option.value}-${option.label}`}
                           className={styles.quickDateButton}
                           onClick={() =>
-                            setValue(`preferences.${index}.date`, option.value, { shouldDirty: true })
+                            setValue(`preferences.${index}.date`, option.value, {
+                              shouldDirty: true,
+                              shouldValidate: true,
+                            })
                           }
                         >
                           {option.label}
@@ -364,42 +379,36 @@ const ReserveForm: React.FC = () => {
                   </div>
                 </div>
               ))}
-              {preferenceErrorMessage && (
-                <span className={styles.error} role="alert" aria-live="assertive">
-                  {preferenceErrorMessage}
-                </span>
-              )}
             </div>
 
             <div className={styles.sectionBlock}>
-              <h2 className={styles.sectionTitle}>ご要望・連絡希望手段</h2>
-              <div className={styles.grid2}>
-                <div className={styles.field}>
-                  <span className={styles.label}>連絡希望手段</span>
-                  <div className={styles.radioGroup} role="radiogroup" aria-label="連絡希望手段">
-                    {CONTACT_METHOD_OPTIONS.map((option) => (
-                      <label key={option.value}>
-                        <input
-                          type="radio"
-                          value={option.value}
-                          {...register('contactMethod')}
-                        />{' '}
-                        {option.label}
-                      </label>
-                    ))}
-                  </div>
+              <h2 className={styles.sectionTitle}>ご連絡方法</h2>
+              <div className={styles.field}>
+                <span className={styles.label}>ご希望の連絡手段をお選びください</span>
+                <div className={styles.radioGroup} role="group" aria-label="連絡方法">
+                  {CONTACT_METHOD_OPTIONS.map((option) => (
+                    <label key={option.value} className={styles.radioLabel}>
+                      <input
+                        type="radio"
+                        value={option.value}
+                        defaultChecked={option.value === 'either'}
+                        {...register('contactMethod')}
+                      />
+                      {option.label}
+                    </label>
+                  ))}
                 </div>
-                <div className={styles.field}>
-                  <label className={styles.label} htmlFor="requests">
-                    ご要望（自由記述）
-                  </label>
-                  <textarea
-                    id="requests"
-                    className={styles.textarea}
-                    placeholder="気になる点や体質などがあればご記入ください"
-                    {...register('requests')}
-                  />
-                </div>
+              </div>
+              <div className={styles.field}>
+                <label className={styles.label} htmlFor="requests">
+                  ご要望・ご質問
+                </label>
+                <textarea
+                  id="requests"
+                  className={styles.textarea}
+                  placeholder="気になる部位やご相談内容があればご記入ください"
+                  {...register('requests')}
+                />
               </div>
             </div>
 
@@ -407,7 +416,7 @@ const ReserveForm: React.FC = () => {
               <h2 className={styles.sectionTitle}>事前アンケート</h2>
               <div className={styles.field}>
                 <span className={styles.label}>
-                  1 どこの脱毛が気になりますか？（複数選択可）
+                  1. 気になる脱毛部位を教えてください（複数選択可）
                 </span>
                 <Controller
                   control={control}
@@ -444,18 +453,18 @@ const ReserveForm: React.FC = () => {
               <div className={styles.grid2}>
                 <div className={styles.field}>
                   <label className={styles.label} htmlFor="visitedOtherSalon">
-                    2 他の脱毛サロンに行ったことはあります？（サロン名）
+                    2. 他の脱毛サロンを利用したことはありますか？（あればサロン名も）
                   </label>
                   <input
                     id="visitedOtherSalon"
                     className={styles.input}
-                    placeholder="（例）◯◯サロン"
+                    placeholder="例）○○サロンに通っていました"
                     {...register('visitedOtherSalon')}
                   />
                 </div>
                 <div className={styles.field}>
                   <label className={styles.label} htmlFor="interestLevel">
-                    4 脱毛に対する興味度（1-5）
+                    4. 脱毛への興味度（1〜5で評価）
                   </label>
                   <input
                     id="interestLevel"
@@ -469,7 +478,7 @@ const ReserveForm: React.FC = () => {
               </div>
               <div className={styles.field}>
                 <label className={styles.label} htmlFor="motivation">
-                  3 脱毛しようと思ったきっかけ、タイミング
+                  3. 脱毛しようと思ったきっかけやタイミング
                 </label>
                 <textarea
                   id="motivation"
@@ -484,15 +493,11 @@ const ReserveForm: React.FC = () => {
               <h2 className={styles.sectionTitle}>同意事項</h2>
               <div className={styles.agreement}>
                 <ul>
-                  <li>予約は当社からの確定連絡後に成立すること</li>
-                  <li>キャンセル規定／個人情報の取扱いへの同意</li>
+                  <li>ご予約は当サロンからの確認連絡をもって確定となります。</li>
+                  <li>キャンセル規定および個人情報の取り扱いに同意します。</li>
                 </ul>
                 <label className={styles.agreementCheck}>
-                  <input
-                    type="checkbox"
-                    aria-invalid={Boolean(errors.agreed)}
-                    {...register('agreed')}
-                  />{' '}
+                  <input type="checkbox" aria-invalid={Boolean(errors.agreed)} {...register('agreed')} />{' '}
                   同意します<span className={styles.required}>*</span>
                 </label>
                 {errors.agreed && (
@@ -510,11 +515,7 @@ const ReserveForm: React.FC = () => {
             )}
 
             <div className={styles.actions}>
-              <button
-                type="submit"
-                className={styles.submitButton}
-                disabled={submitting}
-              >
+              <button type="submit" className={styles.submitButton} disabled={submitting}>
                 <span>{submitting ? '送信中...' : '送信する'}</span>
                 <img src={arrowIcon} alt="" width={16} height={16} aria-hidden="true" />
               </button>

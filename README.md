@@ -1,17 +1,18 @@
 # Rêve beauty salon LP
 
-大阪・南船場のメンズ専門サロン「Rêve beauty salon」のランディングページです。無料カウンセリング予約フォームとサロン紹介コンテンツを中心に構成されています。
+大阪・南船場のメンズ専門サロン「Rêve beauty salon（レーヴ）」のランディングページです。無料カウンセリング予約フォームとサロンの魅力を分かりやすく伝えるコンテンツを React + TypeScript で実装しています。
 
-## 主な機能
-- トップセクションから予約フォームへの誘導CTA
-- サロンの特徴／口コミ／FAQ／ギャラリーセクション
+## 主なコンテンツ
+- ファーストビューから予約フォームへ誘導する CTA
+- サロンの特徴 / 料金案内 / 実績（口コミ） / FAQ / ギャラリー
 - Formspree を利用した無料カウンセリング予約フォーム
-- GitHub Pages（`https://yuma2004.github.io/hoshigoe-salon-lp/`）への静的デプロイ
+- 送信完了ページとハッシュベースの簡易ルーティング
 
 ## 技術スタック
-- React + TypeScript（Create React App ベース）
-- CSS Modules によるセクション別スタイリング
-- Formspree API を利用したフォーム送信
+- React 19 + TypeScript（Create React App ベース）
+- CSS Modules によるセクション単位のスタイリング
+- react-hook-form + zod によるフォームバリデーション
+- Formspree API 連携
 - GitHub Pages へのデプロイ（`gh-pages` パッケージ）
 
 ## セットアップ
@@ -23,68 +24,46 @@ npm install
 ```bash
 npm start
 ```
-ブラウザで `http://localhost:3000` が自動的に開きます。ホットリロードが有効です。
+`http://localhost:3000` が自動で立ち上がります。ホットリロード対応済みです。
 
 ## Lint / テスト / ビルド
 ```bash
-npm run lint   # （今後 Phase 5 で導入予定）
+npm run lint   # ESLint（Phase 5 で導入済み）
 npm test       # Jest + React Testing Library
-npm run build  # 静的ファイルを build/ に出力
+npm run build  # 静的ファイルを build/ 配下に出力
 ```
 
 ## デプロイ
 GitHub Pages を利用して公開しています。
-
 ```bash
 npm run deploy
 ```
+`npm run build` 実行後、`build/` ディレクトリの成果物を `gh-pages` ブランチへデプロイします。
 
-上記コマンドは `npm run build` を実行した後、`build/` ディレクトリを `gh-pages` ブランチへデプロイします。
+## Formspree 連携
+- フォーム ID: `xnngbzkp`
+- 送信成功時にサンクスページへ遷移します（ルーターで制御）
+- Formspree ダッシュボードの **Project Settings > Restrict to Domain** に `yuma2004.github.io` と `localhost:3000` を登録してください
+
+### CORS エラーが発生した場合
+1. DevTools > Network でフォーム送信リクエストを確認
+2. OPTIONS リクエストの `Access-Control-Allow-Origin` をチェック
+3. Formspree の許可ドメインに現在のドメインを追加
+4. 送信を再試行
 
 ## ディレクトリ構成（抜粋）
 ```
-├─ public/          静的アセットとHTMLテンプレート
+├─ public/          静的アセットと HTML テンプレート
 ├─ src/
 │  ├─ assets/       画像などのアセット
-│  ├─ components/   セクション単位のReactコンポーネント
-│  ├─ App.tsx       画面構成（Phase 2 でルーター化予定）
+│  ├─ components/   セクション単位の React コンポーネント
+│  ├─ hooks/        カスタムフック（スクロールアニメーション等）
+│  ├─ router/       ハッシュベースの簡易ルーター
+│  ├─ App.tsx       画面構成（Phase 2 でルーター化済み）
 │  └─ index.tsx     エントリーポイント
-├─ PLAN.md          改善計画
-└─ TODO.md          実装タスク管理
+├─ PLAN.md          長期的な改善計画
+└─ TODO.md          実行タスク管理
 ```
 
-## フォーム連携について
-- Formspree フォームID: `xnngbzkp`
-- 送信成功時はサンクスページへ遷移する設計です（Phase 2/3 でルーター整備予定）。
-- 送信内容は Formspree ダッシュボードで確認してください。
-
-### Formspree 設定（重要）
-**Formspree のダッシュボードで以下を確認してください：**
-
-1. **Project Settings > Restrict to Domain**
-   - このサイトが公開されている全ドメインを登録する必要があります
-   - 現在: `yuma2004.github.io` を登録してください
-   - ローカル開発時: `localhost:3000` も追加すると便利です
-
-2. **受信メールアドレス確認**
-   - Dashboard から予約フォーム送信内容を確認できます
-   - 必要に応じて転送先を設定してください
-
-### CORS エラーが発生した場合
-**症状：** Network タブで OPTIONS リクエストが失敗し、`Access-Control-Allow-Origin` ヘッダーがない
-
-**原因：**
-- Formspree 側で送信元ドメインが許可されていない
-- または API エンドポイントの URL が二重になっている
-
-**解決手順：**
-1. DevTools > Network タブを開く
-2. フォーム送信してエラーを確認
-3. OPTIONS リクエストのレスポンスヘッダーを確認
-4. Formspree ダッシュボード > Project Settings > Restrict to Domain に、現在のドメイン（例：`yuma2004.github.io`）を追加
-5. フォーム送信を再試行
-
----
-
-## 今後の改善
-フェーズ別の詳細な改善内容と進捗は `PLAN.md` と `TODO.md` を参照してください。
+## ライセンス
+クライアント案件につきライセンスは未定義です。再利用時は担当者に確認してください。

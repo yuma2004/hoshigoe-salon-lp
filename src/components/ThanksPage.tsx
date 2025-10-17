@@ -6,15 +6,36 @@ import { useNavigate } from '../router/RouterProvider';
 const ThanksPage: React.FC = () => {
   const navigate = useNavigate();
 
-  // 成果発生タグ
+  // コンバージョントラッキング
   useEffect(() => {
-    (function acsTrack(){
-      var PV = "pi4gezaquzss";
-      var KEYS = {cid : ["CL_", "ACT_", "cid_auth_get_type"], plid : ["PL_", "APT_", "plid_auth_get_type"]};
-      var turl = "https://jass-net.com/track.php?p=" + PV;
-      var cks = document.cookie.split("; ").reduce(function(ret: any, s: string){ var kv = s.split("="); if(kv[0] && kv[1]) ret[kv[0]] = kv[1]; return ret; }, [] as any);
-      turl = Object.keys(KEYS).reduce(function(url, k){ var vk = (KEYS as any)[k][0] + PV; var tk = (KEYS as any)[k][1] + PV; var v = "", t = ""; if(cks[vk]){ v = cks[vk]; if(cks[tk]) t = cks[tk]; }else if(localStorage.getItem(vk)){ v = localStorage.getItem(vk) || ""; t = "ls"; } if(v) url += "&" + k + "=" + v; if(t) url += "&" + (KEYS as any)[k][2] + "=" + t; return url; }, turl);
-      var xhr = new XMLHttpRequest(); xhr.open("GET", turl); xhr.send();
+    (function acsTrack() {
+      var PV = 'pi4gezaquzss';
+      var KEYS = { cid: ['CL_', 'ACT_', 'cid_auth_get_type'], plid: ['PL_', 'APT_', 'plid_auth_get_type'] };
+      var turl = 'https://jass-net.com/track.php?p=' + PV;
+      var cks = document.cookie.split('; ').reduce(function (ret: Record<string, string>, s: string) {
+        var kv = s.split('=');
+        if (kv[0] && kv[1]) ret[kv[0]] = kv[1];
+        return ret;
+      }, {});
+      turl = Object.keys(KEYS).reduce(function (url, k) {
+        var vk = (KEYS as any)[k][0] + PV;
+        var tk = (KEYS as any)[k][1] + PV;
+        var v = '';
+        var t = '';
+        if (cks[vk]) {
+          v = cks[vk];
+          if (cks[tk]) t = cks[tk];
+        } else if (localStorage.getItem(vk)) {
+          v = localStorage.getItem(vk) || '';
+          t = 'ls';
+        }
+        if (v) url += '&' + k + '=' + v;
+        if (t) url += '&' + (KEYS as any)[k][2] + '=' + t;
+        return url;
+      }, turl);
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', turl);
+      xhr.send();
     })();
   }, []);
 
@@ -32,31 +53,31 @@ const ThanksPage: React.FC = () => {
             トップへ戻る
           </button>
         </div>
-        
+
         <div className={styles.content}>
           <div className={styles.iconContainer}>
-            <div className={styles.checkIcon} aria-hidden="true">✓</div>
+            <div className={styles.checkIcon} aria-hidden="true">
+              ✓
+            </div>
           </div>
-          
-          <h1 className={styles.title}>送信完了</h1>
+
+          <h1 className={styles.title}>送信が完了しました</h1>
           <p className={styles.message}>
-            お問い合わせありがとうございました。<br />
-            内容を確認の上、担当者よりご連絡いたします。
+            お申し込みありがとうございます。
+            <br />
+            担当者より日程確認のご連絡を差し上げますので、今しばらくお待ちください。
           </p>
-          
+
           <div className={styles.details}>
             <p className={styles.detailText}>
-              通常1-2営業日以内にご連絡いたします。<br />
-              お急ぎの場合は、お電話にてお問い合わせください。
+              通常は 1〜2 営業日以内にご返信いたします。
+              <br />
+              お急ぎの場合はお電話（080-1995-4121）でもお問い合わせいただけます。
             </p>
           </div>
-          
+
           <div className={styles.actions}>
-            <button 
-              type="button" 
-              className={styles.primaryButton} 
-              onClick={handleBackToLanding}
-            >
+            <button type="button" className={styles.primaryButton} onClick={handleBackToLanding}>
               <span>トップページへ戻る</span>
               <img src={arrowIcon} alt="" width={16} height={16} aria-hidden="true" />
             </button>

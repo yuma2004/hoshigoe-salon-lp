@@ -8,7 +8,7 @@ const renderApp = () =>
   render(
     <RouterProvider>
       <App />
-    </RouterProvider>
+    </RouterProvider>,
   );
 
 describe('App routing', () => {
@@ -28,7 +28,7 @@ describe('App routing', () => {
     await userEvent.click(primaryCta);
 
     expect(
-      await screen.findByRole('heading', { name: '無料カウンセリング予約フォーム' })
+      await screen.findByRole('heading', { name: '無料カウンセリング予約フォーム' }),
     ).toBeInTheDocument();
   });
 
@@ -36,6 +36,6 @@ describe('App routing', () => {
     window.location.hash = '#/thanks';
     renderApp();
 
-    expect(screen.getByRole('heading', { name: '送信完了' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: '送信が完了しました' })).toBeInTheDocument();
   });
 });
