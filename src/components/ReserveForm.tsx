@@ -121,9 +121,7 @@ const buildPreferencesPayload = (preferences: Array<DateTimePreference>): string
     .filter((value): value is string => Boolean(value));
 
 const ReserveForm: React.FC = () => {
-  const [formspreeState, submitToFormspree, resetFormspree] = useFormspree<FormspreePayload>('xnngbzkp', {
-    endpoint: 'https://formspree.io/f/xnngbzkp',
-  });
+  const [formspreeState, submitToFormspree, resetFormspree] = useFormspree<FormspreePayload>('xnngbzkp');
   const navigate = useNavigate();
   const quickDateOptions = useMemo(() => {
     const today = new Date();
