@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "./static/css/main.61458d8c.css",
+    "main.css": "./static/css/main.401dd2d8.css",
     "main.js": "./static/js/main.7b3cd44c.js",
     "static/js/453.75696ff6.chunk.js": "./static/js/453.75696ff6.chunk.js",
     "static/media/main_visual.png": "./static/media/main_visual.fc1c8883cd7dbd8e3010.png",
@@ -16,12 +16,12 @@
     "static/media/salon_logo_wall.png": "./static/media/salon_logo_wall.f473fb62870dff1a037e.png",
     "index.html": "./index.html",
     "static/media/arrow_icon.svg": "./static/media/arrow_icon.f054a9fc9e2d536ee6c0196152d25ac5.svg",
-    "main.61458d8c.css.map": "./static/css/main.61458d8c.css.map",
+    "main.401dd2d8.css.map": "./static/css/main.401dd2d8.css.map",
     "main.7b3cd44c.js.map": "./static/js/main.7b3cd44c.js.map",
     "453.75696ff6.chunk.js.map": "./static/js/453.75696ff6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.61458d8c.css",
+    "static/css/main.401dd2d8.css",
     "static/js/main.7b3cd44c.js"
   ]
 }
