@@ -41,6 +41,8 @@ img {
 
 /* カラー変数 */
 :root {
+  --content-max-width: 760px;
+  --desktop-inline-padding: clamp(20px, calc((100% - var(--content-max-width)) / 2), 320px);
   --primary-gold: #C4B095;
   --secondary-gold: #BFA46F;
   --dark-gold: #99855E;

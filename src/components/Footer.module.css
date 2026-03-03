@@ -15,7 +15,7 @@
 
 @media (min-width: 1440px) {
   .content {
-    padding: 48px 320px 60px;
+    padding: 48px var(--desktop-inline-padding) 60px;
   }
 }
 
@@ -192,7 +192,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 40px 320px 20px;
+    padding: 40px var(--desktop-inline-padding) 20px;
   }
 }
 
